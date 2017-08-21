@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
 var path = require('path');
+var users = require('../controllers/users.js');
 
 
 module.exports = function (app) {
