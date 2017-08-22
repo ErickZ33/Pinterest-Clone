@@ -16,5 +16,5 @@
 
 <div *ngIf="imageOptions">
   <p>THIS PART WORKED</p>
-  {{imageList | json}}
+  <div *ngFor="let link of imageList"><img src="{{link}}"></div>
 </div>

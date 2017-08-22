@@ -29,7 +29,12 @@ export class PinsComponent implements OnInit {
 
   gotUrl() {
     console.log(this.url);
-    // this._pinService.sendUrl(this.url).then(response => console.log (response)).catch(err => console.log(err));
+    this._pinService.sendUrl(this.url).then(response => { 
+      this.imageList = response;
+      console.log("in component:");
+      console.log(this.imageList);
+      this.imageOptions = true;
+    }).catch(err => console.log(err));
   }
 
   // grabImages(){
