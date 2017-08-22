@@ -1,3 +1,30 @@
 <div class="container">
-  profile works!
+  <div class="profileHeader">
+    <h2>Username</h2>
+    <div class="profileRight">
+      <div class="follows">
+      <div class="follow">
+      <p class="number">6.2m</p>
+      <p>Followers</p>
+      </div>
+      <div class="follow">
+      <p class="number">0</p>
+      <p>Following</p>
+      </div>
+      </div>
+      <div class="profile">
+      <img class="profile" src="/assets/images/kimk.jpg" style="height:200px;width:195px">
+      </div>
+      </div>
+    <div class="profileNav">
+      <a class="nav" [routerLink]="['/profile']"> Boards</a>
+      <a class="nav" [routerLink]="['pins']"> Pins </a>
+    </div>
+  </div>
+  
+
+  <div class="profileContent">
+  <router-outlet></router-outlet>
+  </div>
+
 </div>
