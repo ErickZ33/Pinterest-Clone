@@ -1,6 +1,6 @@
 <div *ngIf="currentUser.length >= 1" class="container">
   <div class="profileHeader">
-    <h2>{{currentUser[0].name}}</h2>
+     <!-- <h2>{{currentUser[0].name}}</h2>  -->
     <div class="profileRight">
       <div class="follows">
         <div class="follow">
@@ -17,8 +17,8 @@
       </div>
     </div>
     <div class="profileNav">
-      <a class="nav" [routerLink]="['boards']" [routerLinkActive]="['active']"> Boards</a>
-      <a class="nav" [routerLink]="['pins']" [routerLinkActive]="['active']"> Pins </a>
+      <a href="javascript:void(0)" class="nav" [routerLink]="['boards']" [routerLinkActive]="['active']"> Boards</a>
+      <a href="javascript:void(0)" class="nav" [routerLink]="['pins']" [routerLinkActive]="['active']"> Pins </a>
     </div>
   </div>
   <div class="profileContent">
