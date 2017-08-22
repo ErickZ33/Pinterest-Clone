@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'explore', component: ExploreComponent },
   { path: 'profile', component: ProfileComponent,children:[
-      { path: '', component: BoardsComponent },
+      { path: 'boards', component: BoardsComponent },
       { path: 'pins', component: PinsComponent }
   ]}
 ];

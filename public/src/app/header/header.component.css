@@ -28,9 +28,9 @@ li a{
 li a:hover{
     background-color: #EEEEEE;
 }
-li a:active{
-    color:black;
-    background-color:#757575;
+li a.active{
+    color:#424242;
+    background-color:#E0E0E0
 }
 div.nav{
     height:60px;
