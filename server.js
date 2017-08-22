@@ -2,6 +2,7 @@ var express = require("express");
 var path = require("path");
 var bodyParser = require('body-parser');
 require('./server/config/mongoose.js');
+
 var route_setter = require('./server/config/routes.js');
 var app = express();
 
