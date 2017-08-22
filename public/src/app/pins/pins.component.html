@@ -1,3 +1,20 @@
-<p>
-  pins works!
-</p>
+<div class="container">
+    <div class="createBoard">
+      <div class="graysquare">
+        <img (click)="addPin()" class="dropdown" src="/assets/images/plus.png" height="40" width="43">
+      </div>
+      <div class="inboard">
+      </div>
+    </div>
+</div>
+
+<h2>Create a new pin</h2>
+<form (submit)="gotUrl()">
+  <input type="text" name="address" [(ngModel)]="url.address">
+  <button type="submit">Next</button>
+</form>
+
+<div *ngIf="imageOptions">
+  <p>THIS PART WORKED</p>
+  <div *ngFor="let link of imageList"><img src="{{link}}"></div>
+</div>

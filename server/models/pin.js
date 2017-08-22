@@ -11,13 +11,12 @@ var PinSchema = new mongoose.Schema({
     },
     comments: [{
         type: Schema.Types.ObjectId, 
-        ref: 'User'
-    }],
-    following: [{
-        type: Schema.Types.ObjectId, 
-        ref: 'User'
+        ref: 'Comment'
     }],
     image: {
+        type: String
+    },
+    url: {
         type: String
     }},
     {

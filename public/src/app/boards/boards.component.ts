@@ -16,6 +16,11 @@ export class BoardsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+  addBoard(){
+    console.log("this board works")
   }
 
 }
