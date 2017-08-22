@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var currentUser
 
 module.exports = {
     createUser: function (req, res) {
@@ -38,8 +39,20 @@ module.exports = {
                 console.log(err)
             }
             else{
+                currentUser = req.body.email
                 res.json(user);
             }
         })
     }, 
+    getCurrentUser: function(req, res) {
+        User.find({email: currentUser}, function(err, user){
+            if(err){
+                console.log(err)
+            }
+            else{
+                console.log(user)
+                res.json(user);
+            }
+        })
+    }
 }    

@@ -15,6 +15,10 @@ module.exports = function (app) {
         users.login(req, res);
     })
 
+    app.get('/api/getCurrentUser', function (req, res) {
+        users.getCurrentUser(req, res);
+    })
+
     app.all('*', function (req, res) {
         res.sendFile(path.resolve('./public/dist/index.html'));
     })

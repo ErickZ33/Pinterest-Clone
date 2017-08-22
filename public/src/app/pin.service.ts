@@ -6,7 +6,8 @@ import { Http } from '@angular/http';
 @Injectable()
 export class PinService {
 
-  currentUser
+  currentUserEmail
+  currentUserName
 
   constructor(private _http: Http) { }
 
@@ -23,12 +24,11 @@ export class PinService {
   }
 
   login(user){
-    this.currentUser = user.email
     return this._http.post('/api/login', user).map(data => data.json()).toPromise();
   }
 
   grabUser(){
-    return this._http.get('/api/account').map(data => data.json()).toPromise();
+    return this._http.get('/api/getCurrentUser').map(data => data.json()).toPromise();
   }
 
 }

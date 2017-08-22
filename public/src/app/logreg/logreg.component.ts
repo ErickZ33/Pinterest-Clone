@@ -79,4 +79,11 @@ export class LogregComponent implements OnInit {
     this.gender = false
     this.register = true
   }
+
+  goBackToLoginReg(){
+    this.gender = false
+    this.register = true
+    this.logForm = false
+  }
+
 }

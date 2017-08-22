@@ -1,6 +1,6 @@
 <div class="container">
   <div class="profileHeader">
-    <h2>Username</h2>
+    <h2>{{currentUser[0].name}}</h2>
     <div class="profileRight">
       <div class="follows">
       <div class="follow">
@@ -21,7 +21,6 @@
       <a class="nav" [routerLink]="['pins']"> Pins </a>
     </div>
   </div>
-  
 
   <div class="profileContent">
   <router-outlet></router-outlet>
