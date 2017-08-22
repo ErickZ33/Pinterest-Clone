@@ -10,6 +10,9 @@
       required
       [(ngModel)]="user.password">
     <input [disabled]="!subForm.valid" id="submit" type="submit" value="Continue">
+    <p *ngIf="exists">Email already exist!</p>
+    <h2 style="font-family: 'Helvetica Neue'">OR</h2>
+    <button (click)="loginForm()" id="loginButton">Login</button>
   </form>
 
   <form #regForm="ngForm" *ngIf="gender" (submit)="addUser()">
@@ -27,6 +30,18 @@
     <input type="radio" [(ngModel)]="user.gender" value="custom" name="custom">Custom<br>
     <input [disabled]="!regForm.valid" id="signUp" type="submit" value="Sign up"><br>
     <button id="back" (click)="goBack()" type="submit">Back</button>
+  </form>
+
+  <form *ngIf="logForm" #loginForm="ngForm" (submit)="loginUser()">
+    <h1 class="welcomeToPinText">Log in to see more</h1>
+    <input class="emailPassword" type="text" name="email" placeholder="Email"
+      required
+      [(ngModel)]="login.email"><br>
+    <input class="emailPassword" type="password" name="password" placeholder="Password"
+      required
+      [(ngModel)]="login.password">
+    <input [disabled]="!loginForm.valid" id="submit" type="submit" value="Login in">
+    <p *ngIf="valid">Please register or enter valid credentials</p>
   </form>
 
 </div>

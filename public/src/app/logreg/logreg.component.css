@@ -66,3 +66,15 @@
     border-left: none;
     border-right: none;
 }
+#loginButton{
+    width: 272px;
+    height: 36px;
+    background-color: #BD081C;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-radius: 5px;    
+}
+h2{
+    color: #555555;
+}
