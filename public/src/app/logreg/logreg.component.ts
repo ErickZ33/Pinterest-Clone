@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ExamService } from '../exam.service';
 import { User } from '../user';
 import { Router } from '@angular/router';
+import { PinService } from '../pin.service';
+
 
 @Component({
   selector: 'app-logreg',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class LogregComponent implements OnInit {
 
   users
-  user = new User()  
+  // user = new User()  
   exists = false;
   registered = false;
   pwError = false;
@@ -19,7 +20,8 @@ export class LogregComponent implements OnInit {
   onlyPW = false;
   login;
 
-  constructor(private _examService: ExamService, private _router: Router) { }
+  constructor(private _pinService:PinService, private _router: Router){}
+
 
   ngOnInit(){
     this.getUsers();
@@ -27,25 +29,25 @@ export class LogregComponent implements OnInit {
   }
   
   getUsers() {
-    this._examService.retrieveUsers()
+    this._pinService.retrieveUsers()
       .then(users => this.users = users)
       .catch(err => console.log(err));
   }
 
-  createUser(){
-    this.exists = false;
-    for (let i in this.users) {
-      if (this.users[i].email == this.user.email){
-        this.exists = true;
-        this.user = new User();
-      }
-    }
-    if (!this.exists) {
-      this._examService.sendUser(this.user).then(response => console.log (response)).catch(err => console.log(err));
-      this.user = new User();
-      this.getUsers();
-    }
-  }
+  // createUser(){
+  //   this.exists = false;
+  //   for (let i in this.users) {
+  //     if (this.users[i].email == this.user.email){
+  //       this.exists = true;
+  //       this.user = new User();
+  //     }
+  //   }
+  //   if (!this.exists) {
+  //     this._pinService.sendUser(this.user).then(response => console.log (response)).catch(err => console.log(err));
+  //     this.user = new User();
+  //     this.getUsers();
+  //   }
+  // }
 
   loginUser(){
     this.registered = false;
@@ -63,7 +65,7 @@ export class LogregComponent implements OnInit {
       }
     }
     if (this.registered){
-      this._examService.login(this.login).then(response => {
+      this._pinService.login(this.login).then(response => {
         this._router.navigateByUrl('/dashboard');
       }).catch(err => console.log(err));
     } else if (this.onlyPW) {
@@ -71,6 +73,33 @@ export class LogregComponent implements OnInit {
     } else {
       this.emailError = true;
     }
+  }
+
+  gender = false
+  register = true
+  user = {
+    email: '',
+    password: '',
+    name: '',
+    gender: '',
+    age: ''
+  }
+  valid = []
+
+  onSubmit(){
+    this.gender = true
+    this.register = false
+    
+  }
+
+  goBack(){
+    this.gender = false
+    this.register = true
+  }
+
+  addUser(){
+    console.log(this.user)
+    this._pinService.sendUser(this.user).then(user => this.valid = user).catch(err => console.log(err));    
   }
 
 }
