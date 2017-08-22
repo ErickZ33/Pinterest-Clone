@@ -11,11 +11,10 @@ import { AppComponent } from './app.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LogregComponent },
   { path: 'home', component: HomeComponent}, 
-  { path: 'explore', component: ExploreComponent },
-
+  { path: 'explore', component: ExploreComponent},
   { path: 'profile', component: ProfileComponent,children:[
       { path: 'boards', component: BoardsComponent },
-      { path: 'pins', component: PinsComponent }
+      { path: 'pins', component: PinsComponent },
   ]}
 ];
 
