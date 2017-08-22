@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PinService } from '../pin.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  currentUser
 
+  constructor(private _pinService:PinService, private _router: Router){}
+  
   ngOnInit() {
+    this._pinService.grabUser().then(currUser => this.currentUser = currUser).catch(err => console.log(err));    
   }
-
+  
 }

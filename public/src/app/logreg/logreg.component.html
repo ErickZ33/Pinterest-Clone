@@ -43,6 +43,7 @@
         [(ngModel)]="login.password">
       <input [disabled]="!loginForm.valid" id="submit" type="submit" value="Login in">
       <p *ngIf="valid">Please register or enter valid credentials</p>
+      <button id="back" (click)="goBackToLoginReg()" type="submit">Back</button>      
     </form>
 
   </div>
