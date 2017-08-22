@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogregComponent } from './logreg/logreg.component';
+import {HttpModule} from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { PinService } from './pin.service';
+
 
 @NgModule({
   declarations: [
@@ -12,9 +15,11 @@ import { LogregComponent } from './logreg/logreg.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [PinService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
