@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogregComponent implements OnInit {
 
+  gender = false
+  register = true
+  emailPassword = {
+    email: '',
+    password: ''
+  }
+
   constructor() { }
 
   ngOnInit() {
+
+  }
+  onSubmit(){
+    this.gender = true
+    this.register = false
+  }
+
+  goBack(){
+    this.gender = false
+    this.register = true
   }
 
 }
