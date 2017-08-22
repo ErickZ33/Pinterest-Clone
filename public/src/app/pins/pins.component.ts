@@ -10,12 +10,7 @@ import { PinService } from '../pin.service';
 export class PinsComponent implements OnInit {
   imageOptions = false;
   currentUser
-  // pin = {
-  //   creator : this.currentUser,
-  //   description : "",
-  //   image: "",
-  //   url: ""
-  // }
+
   url = { 
     address : ""
   }
@@ -28,18 +23,13 @@ export class PinsComponent implements OnInit {
   }
 
   gotUrl() {
-    console.log(this.url);
-    // this._pinService.sendUrl(this.url).then(response => console.log (response)).catch(err => console.log(err));
+    this._pinService.sendUrl(this.url).then(response => console.log (response)).catch(err => console.log(err));
   }
 
-  // grabImages(){
-  //   this._pinService.grabUrls().then(response => {
-  //     this.imageList = response;
-  //     this.imageOptions = true;
-  //   }).catch(err => console.log(err)); 
-  // }
-
-  addPin(){
-    console.log(this.url)
+  grabImages(){
+    this._pinService.grabUrls().then(response => {
+      this.imageList = response;
+      this.imageOptions = true;
+    }).catch(err => console.log(err)); 
   }
 }
