@@ -1,5 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
 div.container{
     width:970px;
     margin:auto;
+}
+html{
+    background-image: url('http://marketingartfully.com/wp-content/uploads/2015/10/feed-not-color-coded1.png');
 }

@@ -38,7 +38,7 @@ const routes: Routes = [
     exports: [
     RouterModule
   ],
-  providers: [],
+  providers: [PinService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

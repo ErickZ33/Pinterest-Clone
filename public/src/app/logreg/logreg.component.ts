@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PinService } from '../pin.service';
+
 
 @Component({
   selector: 'app-logreg',
@@ -9,24 +11,34 @@ export class LogregComponent implements OnInit {
 
   gender = false
   register = true
-  emailPassword = {
+  user = {
     email: '',
-    password: ''
+    password: '',
+    name: '',
+    gender: '',
+    age: ''
   }
+  valid = []
 
-  constructor() { }
-
+  constructor(private _PinService:PinService){}
+  
   ngOnInit() {
 
   }
   onSubmit(){
     this.gender = true
     this.register = false
+    
   }
 
   goBack(){
     this.gender = false
     this.register = true
+  }
+
+  addUser(){
+    console.log(this.user)
+    this._PinService.addUser(this.user).then(user => this.valid = user).catch(err => console.log(err));    
   }
 
 }
