@@ -1,3 +1,14 @@
+
+<div class="container">
+    <div class="createBoard">
+      <div class="graysquare">
+        <img (click)="addPin()" class="dropdown" src="/assets/images/plus.png" height="40" width="43">
+      </div>
+      <div class="inboard">
+      </div>
+    </div>
+</div>
+
 <h2>Create a new pin</h2>
 <form #pinUrl="ngForm">
   <input type="text" name="address" [(ngModel)]="url.address" #url="ngModel">

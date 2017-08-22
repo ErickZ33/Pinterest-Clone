@@ -39,4 +39,7 @@ export class PinsComponent implements OnInit {
     }).catch(err => console.log(err)); 
   }
 
+  addPin(){
+    
+  }
 }

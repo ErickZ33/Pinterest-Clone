@@ -54,7 +54,8 @@ export class LogregComponent implements OnInit {
   }
 
   addUser(){
-    this._pinService.sendUser(this.user).then(user => this.validUser = user).catch(err => console.log(err));    
+    this._pinService.sendUser(this.user).then(user => this.validUser = user).catch(err => console.log(err));   
+    this._router.navigateByUrl('/home'); 
   }
 
   loginForm(){

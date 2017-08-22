@@ -14,4 +14,8 @@ export class HeaderComponent implements OnInit {
     this.imglogo="/assets/images/Pinterest-logo.png"
   }
 
+  logout(){
+    
+  }
+
 }
