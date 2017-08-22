@@ -40,6 +40,6 @@ export class PinsComponent implements OnInit {
   }
 
   addPin(){
-    
+    console.log(this.url)
   }
 }
