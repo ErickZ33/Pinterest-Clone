@@ -1,3 +1,9 @@
-<p>
-  pins works!
-</p>
+<h2>Create a new pin</h2>
+<form #pinUrl="ngForm">
+  <input type="text" name="address" [(ngModel)]="url.address" #url="ngModel">
+  <button (click)='gotUrl()' type="submit">Next</button>
+</form>
+
+<div *ngIf="imageOptions">
+  {{imageList | json}}
+</div>

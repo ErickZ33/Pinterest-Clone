@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema
-var User = mongoose.model('User')
 
 var PinSchema = new mongoose.Schema({
     creator: {
@@ -12,13 +11,12 @@ var PinSchema = new mongoose.Schema({
     },
     comments: [{
         type: Schema.Types.ObjectId, 
-        ref: 'User'
-    }],
-    following: [{
-        type: Schema.Types.ObjectId, 
-        ref: 'User'
+        ref: 'Comment'
     }],
     image: {
+        type: String
+    },
+    url: {
         type: String
     }},
     {

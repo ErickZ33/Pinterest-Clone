@@ -1,5 +1,6 @@
 var path = require('path');
 var users = require('../controllers/users.js');
+var pins = require('../controllers/pins.js');
 
 module.exports = function (app) {
 
@@ -17,6 +18,15 @@ module.exports = function (app) {
 
     app.get('/api/getCurrentUser', function (req, res) {
         users.getCurrentUser(req, res);
+    })
+
+    app.post('/api/imageOptions', function (req, res) {
+        console.log("in routes");
+        pins.parseImages(req, res);
+    })
+
+    app.get('/api/imageGrab', function (req, res) {
+        pins.parseImages(req, res);
     })
 
     app.all('*', function (req, res) {

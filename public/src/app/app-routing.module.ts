@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: LogregComponent },
   { path: 'home', component: HomeComponent}, 
   { path: 'explore', component: ExploreComponent },
-
+  { path: 'pinstuff', component: PinsComponent },
   { path: 'profile', component: ProfileComponent,children:[
       { path: 'boards', component: BoardsComponent },
       { path: 'pins', component: PinsComponent }
