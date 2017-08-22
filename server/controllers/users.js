@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Board = mongoose.model('Board');
 var currentUser = []
 
 module.exports = {
@@ -12,15 +13,21 @@ module.exports = {
             following: [],
             email: req.body.email,            
             interests: [],
-            password: req.body.password
+            password: req.body.password, 
         });
-        user.save(function (err, user) {
-            if (err) {
-                res.json(err);
-            } else {
-                console.log(user)
-                res.json(user);
-            }
+        var myBoard = new Board();
+        myBoard.name = "My Likes";
+        myBoard._owner = user;
+        user.boards.push(myBoard);
+        myBoard.save(function (err){
+            user.save(function (err, user) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    console.log(user)
+                    res.json(user);
+                }
+            });
         });
     }, 
     checkEmail: function (req, res) {
