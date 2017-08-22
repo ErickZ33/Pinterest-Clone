@@ -2,6 +2,7 @@ var express = require("express");
 var path = require("path");
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+require('./server/config/mongoose.js');
 var route_setter = require('./server/config/routes.js');
 
 // var request = require('request');
@@ -26,9 +27,6 @@ var route_setter = require('./server/config/routes.js');
 
 // var imageReturn = parseImages('http://www.fromvalerieskitchen.com/blackberry-lemonade-margaritas/');
 // console.log(imageReturn);
-
-
-require('./server/config/mongoose.js');
 
 var app = express();
 

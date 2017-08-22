@@ -11,12 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
-
-const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'explore', component: ExploreComponent },
-  { path: 'profile', component: ProfileComponent },
-  ]
+import { BoardsComponent } from './boards/boards.component';
+import { PinsComponent } from './pins/pins.component';
     
 @NgModule({
   declarations: [
@@ -25,7 +21,9 @@ const routes: Routes = [
     HeaderComponent,
     HomeComponent,
     ExploreComponent,
-    ProfileComponent
+    ProfileComponent,
+    BoardsComponent,
+    PinsComponent
   ],
   imports: [
     BrowserModule,

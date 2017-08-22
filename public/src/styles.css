@@ -2,6 +2,6 @@ div.container{
     width:970px;
     margin:auto;
 }
-html{
-    background-image: url('http://marketingartfully.com/wp-content/uploads/2015/10/feed-not-color-coded1.png');
+*{
+    font-family: sans-serif;
 }
