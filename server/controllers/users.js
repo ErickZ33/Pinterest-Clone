@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
-var currentUser
+var currentUser = []
 
 module.exports = {
     createUser: function (req, res) {

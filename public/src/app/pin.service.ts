@@ -6,9 +6,6 @@ import { Http } from '@angular/http';
 @Injectable()
 export class PinService {
 
-  currentUserEmail
-  currentUserName
-
   constructor(private _http: Http) { }
 
   retrieveUsers(){
