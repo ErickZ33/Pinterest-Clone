@@ -13,17 +13,6 @@ import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardsComponent } from './boards/boards.component';
 import { PinsComponent } from './pins/pins.component';
-
-const routes: Routes = [
-  { path: '', pathMatch: 'full', component: AppComponent },
-  { path: 'logreg', component: LogregComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'explore', component: ExploreComponent },
-  { path: 'profile', component: ProfileComponent,children:[
-      { path: '', component: BoardsComponent },
-      { path: 'pins', component: PinsComponent }
-  ]}
-];
     
 @NgModule({
   declarations: [
