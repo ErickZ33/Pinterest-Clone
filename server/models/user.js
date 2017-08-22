@@ -36,6 +36,10 @@ var UserSchema = new mongoose.Schema({
         type: String, 
         required: [true, "Interests field must be filled out"]
     }],
+    boards: [{
+        type: Schema.Types.ObjectId, 
+        ref: 'Board'
+    }],
     password: {
         type: String,
         required: true,

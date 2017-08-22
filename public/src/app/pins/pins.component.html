@@ -14,7 +14,7 @@
   <button type="submit">Next</button>
 </form>
 
-<div *ngIf="imageOptions">
-  <p>THIS PART WORKED</p>
-  <div *ngFor="let link of imageList"><img src="{{link}}"></div>
+<div class="grid" *ngIf="imageOptions">
+  <div>Choose an image for your pin!</div>
+  <div class="pin-choice" *ngFor="let link of imageList"><img src="{{link}}" (click)="ChooseImg(link)"></div>
 </div>
