@@ -15,11 +15,17 @@ export class BoardsComponent implements OnInit {
   constructor(private _pinService:PinService,private _boardService:BoardService){}
   boardView=false
   board=new Board()
-  currentUser 
+  createNew=true
+  currentUser=[]
+
 
   newBoard(){
     this.board._userid=this.currentUser._id
     this._boardService.addBoard(this.board)
+    this.createNew=false
+  }
+  createNewStatus(){
+    this.createNew=true
   }
   
   showBoards(){
@@ -30,6 +36,10 @@ export class BoardsComponent implements OnInit {
   delete(id){
     this.boardid.content=id
     this._boardService.deleteBoard(this.boardid)
+  }
+  display(id){
+    console.log(id)
+
   }
 
   ngOnInit() {
