@@ -18,6 +18,134 @@
     height: 260px;
 }
 
+.url-form{
+    margin-top: 25px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    margin-bottom: 
+}
+
+.choose-text{
+    font-size: 18px;
+    color: rgb(60,60,60);
+    margin-top: 15px;
+}
+
+.url-form input{
+    width: 200px;
+    height: 35px;
+    font-size: 18px;
+    border-radius: 1px;
+    border: 1px solid rgb(60,60,60);
+}
+
+.url-form input:focus { 
+    border: 1px solid #BD081C;
+}
+
+.url-form button{
+    width: 80px;
+    height: 35px;
+    font-size: 20px;
+    background: #BD081C;
+    color: white;
+    border-radius: 2px;
+    border: none;
+    box-shadow: 1px 1px 1px rgb(40,40,40);
+    font-family: sans-serif;
+    margin-left: 10px;
+}
+
+.last-step {
+    width: 900px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.left{
+    width: 370px;
+    height: 350px;
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.left img{
+    width: 380px;
+    height: 360px;
+}
+
+.right{
+    width: 450px;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    padding-left: 25px;
+    color: rgb(40,40,40);
+    font-size: 18px;
+}
+
+.form-section{
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.input1{
+    height: 25px;
+    width: 300px;
+    font-size: 16px;
+}
+
+.input2{
+    height: 50px;
+    width: 300px;
+    font-size: 16px;
+}
+
+.label1{
+    width: 180px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.label2{
+    width: 110px;
+    vertical-align: bottom;
+}
+
+.board-text{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.board-choice{
+    padding-left: 20px;
+    height: 30px;
+}
+
+.board-choice p{
+    font-size: 18px;
+    display: inline-block;
+    color: rgb(70,70,70);
+    margin: 0px;
+}
+
+.create-pin{
+    width: 130px;
+    height: 30px;
+    font-size: 18px;
+    background: #BD081C;
+    color: white;
+    border-radius: 2px;
+    border: none;
+    box-shadow: 1px 1px 1px rgb(40,40,40);
+    font-family: sans-serif;
+    margin-top: 10px;
+}
+
 /* Julian's stuff from Boards Component */
 
 div.graysquare{

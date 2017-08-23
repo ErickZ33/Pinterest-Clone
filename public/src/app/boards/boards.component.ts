@@ -15,17 +15,7 @@ export class BoardsComponent implements OnInit {
   constructor(private _pinService:PinService,private _boardService:BoardService){}
   boardView=false
   board=new Board()
-  currentUser=[{ 
-    _id: "599c766623ee7e78017ec7c1",
-    name: 'Julian Auza',
-    age: 25,
-    gender: 'custom',
-    email: 'julianauza@gmail.com',
-    password: 'Codingdojod1',
-    __v: 0,
-    interests: [],
-    following: [],
-    followers: [] }]
+  currentUser
 
   newBoard(){
     this.board._userid=this.currentUser[0]._id
@@ -44,7 +34,7 @@ export class BoardsComponent implements OnInit {
   }
 
   ngOnInit() {
-  //  this._pinService.grabUser().then(currUser => this.currentUser = currUser).catch(err => console.log(err));
+   this._pinService.grabUser().then(currUser => this.currentUser = currUser).catch(err => console.log(err));
   this._boardService.showBoards()
     .then(data => this.boards = data)
     .catch(err => console.log(err));
