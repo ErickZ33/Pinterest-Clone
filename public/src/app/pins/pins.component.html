@@ -11,20 +11,19 @@
 </div>
 
 <a class="lightbox" id="newpin">
-        <div class="newBoard">
-          <a class="close" href="profile/pins#">X</a>
-
-
+  <div class="newBoard">
+<a class="close" href="profile/pins#">X</a>
 
 <h2>Create a new pin</h2>
-<div *ngIf='!lastStep'>
+<div class="url-form" *ngIf='!lastStep'>
+  <div class="url-form">
   <form (submit)="gotUrl()">
-    <input type="text" name="address" [(ngModel)]="url.address">
+    <input type="text" name="address" [(ngModel)]="url.address" placeholder=" enter URL">
     <button type="submit">Next</button>
-  </form>
+  </form></div>
 
   <div class="grid" *ngIf="imageOptions">
-    <div>Choose an image for your pin!</div>
+    <div class="choose-text">Choose an image for your pin!</div>
     <div class="pin-choice" (click)="chooseImg(link)" *ngFor="let link of imageList"><img src="{{link}}" (click)="chooseImg(link)"></div>
   </div>
 </div>
@@ -35,21 +34,30 @@
   </div>
 
   <div class="right">
-  <form (submit)="createPin()"> 
-    <label for="title">Give your pin a title:</label>
-    <input type="text" name="title" [(ngModel)]="pin.title">
-    <label for="desc">Description:</label>
-    <input type="text" name="desc" [(ngModel)]="pin.description">
-    <div>Choose a board:</div>
-    <div class="board-choice" *ngFor="let board of boards">
-      <p>{{board.name}}</p>
-      <input type="radio" name="board" value="{{board._id}}" [(ngModel)]="pin.board">
+  <form class="form2" (submit)="createPin()"> 
+    <div class='form-section'>
+      <div class='label1'>Give your pin a title:</div>
+      <input class='input1' type="text" name="title" [(ngModel)]="pin.title">
     </div>
-    <input type="submit" value="Create Pin">
+    <div class='form-section'>
+      <div class='label2'>Description:</div>
+      <textarea class='input2' type="text" name="desc" [(ngModel)]="pin.description"></textarea>
+    </div>
+    <div class="board-text">Choose a board:</div>
+    <div class="board-choice" *ngFor="let board of boards">
+      <input type="radio" name="board" value="{{board._id}}" [(ngModel)]="pin.board">
+      <p>{{board.name}}</p>
+    </div>
+    <div><button class="create-pin" type="submit">Create Pin</button></div>
   </form>
   </div>
 </div>
 
 </div></a>
+
+<div class="userPins">
+  <img *ngFor="let pin of pins" class="pinImages" src="{{pin.image}}">
+</div>
+
   
 
