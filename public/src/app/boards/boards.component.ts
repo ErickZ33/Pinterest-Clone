@@ -15,13 +15,12 @@ export class BoardsComponent implements OnInit {
   constructor(private _pinService:PinService,private _boardService:BoardService){}
   boardView=false
   board=new Board()
-  currentUser
+  currentUser 
 
   newBoard(){
     this.board._userid=this.currentUser._id
     this._boardService.addBoard(this.board)
   }
-  
   
   showBoards(){
     this._boardService.showBoards()

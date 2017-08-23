@@ -16,7 +16,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this._pinService.grabUser().then(currUser => {
       this.currentUser = currUser;
-      console.log(this.currentUser);
     }).catch(err => console.log(err));    
   }
   

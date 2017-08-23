@@ -53,8 +53,6 @@ module.exports = function (app) {
         boards.delete(req, res);
     })
 
-
-
     app.get('/api/boards', function (req, res) {
         users.getBoards(req, res);
     })
@@ -65,6 +63,8 @@ module.exports = function (app) {
 
     app.get('/api/pins', function (req, res) {
         pins.grab(req, res);
+    app.get('/api/grabUserPins', function (req, res) {
+        users.grabUserPins(req, res);
     })
 
     app.all('*', function (req, res) {
