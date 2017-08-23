@@ -46,11 +46,11 @@ div.createBoard:hover{
     background-color: #E0E0E0;
 }
 div.newBoard{
-    height: 250px;
-    width: 500px;
+    height: 400px;
+    width: 800px;
     background-color: white;
     margin:auto;
-    margin-top:150px;
+    margin-top:80px;
     border-radius: 5px;
     padding:20px;
     color: #888;
