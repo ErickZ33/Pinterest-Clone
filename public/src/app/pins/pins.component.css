@@ -2,3 +2,21 @@ div.graysquare{
     height:150px;
     width:200px;
 }
+
+.grid{
+    width: 1200px;
+}
+
+.pin-choice{
+    width: 280px;
+    height: 260px;
+    border: 2px solid black;
+    margin: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.pin-choice img{
+    width: 280px;
+    height: 260px;
+}
