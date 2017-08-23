@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
+import { Board } from "../board";
+import { PinService } from '../pin.service';
+import { BoardService } from '../board.service';
 
 @Component({
   selector: 'app-boards',
@@ -7,20 +10,47 @@ import { NgModule } from '@angular/core';
   styleUrls: ['./boards.component.css']
 })
 export class BoardsComponent implements OnInit {
+  boards;
+  boardid={content:""}
+  constructor(private _pinService:PinService,private _boardService:BoardService){}
+  boardView=false
+  board=new Board()
+  currentUser=[{ 
+    _id: "599c766623ee7e78017ec7c1",
+    name: 'Julian Auza',
+    age: 25,
+    gender: 'custom',
+    email: 'julianauza@gmail.com',
+    password: 'Codingdojod1',
+    __v: 0,
+    interests: [],
+    following: [],
+    followers: [] }]
 
-  constructor() { }
-  board={name:""}
 
   newBoard(){
-    console.log(this.board.name,"hello")
+    this.board._userid=this.currentUser[0]._id
+    this._boardService.addBoard(this.board)
+  }
+  
+  
+  showBoards(){
+    this._boardService.showBoards()
+    .then(data => this.boards = data)
+    .catch(err => console.log(err));
+  }
+  delete(id){
+    this.boardid.content=id
+    this._boardService.deleteBoard(this.boardid)
   }
 
   ngOnInit() {
-
+  //  this._pinService.grabUser().then(currUser => this.currentUser = currUser).catch(err => console.log(err));
+  this._boardService.showBoards()
+    .then(data => this.boards = data)
+    .catch(err => console.log(err));
   }
 
-  addBoard(){
-    console.log("this board works")
-  }
+
 
 }
