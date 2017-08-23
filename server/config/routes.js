@@ -1,6 +1,7 @@
 var path = require('path');
 var users = require('../controllers/users.js');
 var pins = require('../controllers/pins.js');
+var boards = require('../controllers/boards.js');
 
 module.exports = function (app) {
 
@@ -29,8 +30,33 @@ module.exports = function (app) {
         pins.parseImages(req, res);
     })
 
+
+    //ADD BOARD
+    app.post('/newBoard', function (req, res) {
+        // console.log(req.body,"in routes");
+        boards.createBoard(req, res);
+    })
+
+    //SHOW BOARDS
+    app.get('/showBoards', function (req, res){
+        // console.log(req.body.name,"routesShow")
+        boards.show(req,res);
+    });
+    //DELETE BOARD
+
+     app.post('/deleteBoard', function (req, res) {
+        console.log(req.body.content,"in routes");
+        boards.delete(req, res);
+    })
+
+
+
     app.all('*', function (req, res) {
         res.sendFile(path.resolve('./public/dist/index.html'));
     })
+
+
+    
+
     
 }

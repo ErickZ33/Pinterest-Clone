@@ -50,7 +50,7 @@ module.exports = {
                 console.log(err)
             }
             else{
-                console.log(user)
+                console.log(user,"controller")
                 res.json(user);
             }
         })
