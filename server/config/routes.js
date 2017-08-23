@@ -9,6 +9,10 @@ module.exports = function (app) {
         users.createUser(req, res);
     })
 
+    app.post('/api/addUserInterest', function (req, res) {
+        users.addUserInterest(req, res);
+    })
+    
     app.post('/api/checkEmail', function (req, res) {
         users.checkEmail(req, res);
     })
@@ -50,6 +54,14 @@ module.exports = function (app) {
     })
 
 
+
+    app.get('/api/boards', function (req, res) {
+        users.getBoards(req, res);
+    })
+
+    app.post('/api/createPin', function (req, res) {
+        pins.create(req, res);
+    })
 
     app.all('*', function (req, res) {
         res.sendFile(path.resolve('./public/dist/index.html'));

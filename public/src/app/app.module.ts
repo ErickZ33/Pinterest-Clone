@@ -14,6 +14,7 @@ import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardsComponent } from './boards/boards.component';
 import { PinsComponent } from './pins/pins.component';
+import { InterestComponent } from './interest/interest.component';
     
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PinsComponent } from './pins/pins.component';
     ExploreComponent,
     ProfileComponent,
     BoardsComponent,
-    PinsComponent
+    PinsComponent,
+    InterestComponent
   ],
   imports: [
     BrowserModule,
