@@ -49,7 +49,7 @@ module.exports = function (app) {
     //DELETE BOARD
 
      app.post('/deleteBoard', function (req, res) {
-        console.log(req.body.content,"in routes");
+        // console.log(req.body.content,"in routes");
         boards.delete(req, res);
     })
 
