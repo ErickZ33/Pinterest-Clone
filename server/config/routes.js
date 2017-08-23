@@ -9,6 +9,10 @@ module.exports = function (app) {
         users.createUser(req, res);
     })
 
+    app.post('/api/addUserInterest', function (req, res) {
+        users.addUserInterest(req, res);
+    })
+    
     app.post('/api/checkEmail', function (req, res) {
         users.checkEmail(req, res);
     })
