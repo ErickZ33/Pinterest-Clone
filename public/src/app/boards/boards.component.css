@@ -11,18 +11,33 @@ div.container{
 }
 img.plus{
     text-align: center;
-    margin-left:65px;
-    margin-top:30px;
+    margin-left: 66px;
+    margin-top: 21px;
+    height:50px;
+    width:53px;
 }
-div.createBoard{
+div.displayBoard{
     padding-top:10px;
     height:200px;
     width: 250px;
     border-radius:5px;
     display: inline-block;
 }
-div.createBoard:hover{
+div.displayBoard:hover{
     background-color: #E0E0E0;
+    color: #888;
+}
+
+div.displayBoard:hover a{
+    color: #888;
+}
+
+a.delete{
+    display: inline-block;
+    color: white;
+    font-size:12px;
+    float: right;
+    padding:12px;
 }
 div.newBoard{
     height: 250px;
@@ -34,11 +49,15 @@ div.newBoard{
     padding:20px;
     color: #888;
 }
-p.createBoard{
+div.boardComp{
+    padding:20px;
+}
+p.boardLabel{
     margin-left:10px;
     margin-top:9px;
     font-weight: 600;
     color:#757575;
+    display: inline-block;
 }
 a{
     text-decoration:none;

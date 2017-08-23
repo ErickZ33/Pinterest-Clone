@@ -1,14 +1,14 @@
-<div *ngIf="currentUser.length >= 1" class="container">
+<!-- <div *ngIf="currentUser.length >= 1" class="container"> -->
   <div class="profileHeader">
-     <!-- <h2>{{currentUser[0].name}}</h2>  -->
+       <!-- <h2>{{currentUser[0].name}}</h2>    -->
     <div class="profileRight">
       <div class="follows">
         <div class="follow">
-          <p class="number">{{currentUser[0].followers.length}}</p>
+           <!-- <p class="number">{{currentUser[0].followers.length}}</p>  -->
           <p>Followers</p>
         </div>
         <div class="follow">
-          <p class="number">{{currentUser[0].following.length}}</p>
+           <!-- <p class="number">{{currentUser[0].following.length}}</p>  -->
           <p>Following</p>
         </div>
       </div>
@@ -24,4 +24,4 @@
   <div class="profileContent">
     <router-outlet></router-outlet>
   </div>
-</div>
+<!-- </div> -->

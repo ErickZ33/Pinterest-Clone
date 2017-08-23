@@ -11,12 +11,9 @@ import { AppComponent } from './app.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LogregComponent },
   { path: 'home', component: HomeComponent}, 
-<<<<<<< HEAD
   { path: 'explore', component: ExploreComponent},
-=======
-  { path: 'explore', component: ExploreComponent },
   { path: 'pinstuff', component: PinsComponent },
->>>>>>> 73763c4a0766034fb9b88251de19eea72ff067ed
+  { path: 'boards', component: BoardsComponent },
   { path: 'profile', component: ProfileComponent,children:[
       { path: 'boards', component: BoardsComponent },
       { path: 'pins', component: PinsComponent },

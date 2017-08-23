@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http'; 
 import { PinService } from './pin.service';
+import { BoardService } from './board.service';
 import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,7 +35,7 @@ import { PinsComponent } from './pins/pins.component';
     exports: [
     RouterModule
   ],
-  providers: [PinService],
+  providers: [PinService,BoardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
