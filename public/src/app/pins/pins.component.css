@@ -1,19 +1,20 @@
 
 .grid{
-    width: 1200px;
+    width: 900px;
 }
 
 .pin-choice{
-    width: 280px;
+    width: 270px;
     height: 260px;
     border: 2px solid black;
     margin: 10px;
     border-radius: 5px;
     display: inline-block;
+    overflow: hidden;
 }
 
 .pin-choice img{
-    width: 280px;
+    width: 270px;
     height: 260px;
 }
 
@@ -47,13 +48,14 @@ div.createBoard:hover{
 }
 div.newBoard{
     height: 400px;
-    width: 800px;
+    width: 900px;
     background-color: white;
     margin:auto;
     margin-top:80px;
     border-radius: 5px;
     padding:20px;
     color: #888;
+    overflow: scroll;
 }
 p.createBoard{
     margin-left:10px;
@@ -118,12 +120,7 @@ hr{
 	background: rgba(0,0,0,0.8);
 }
 
-.lightbox img {
-	/** Pad the lightbox image */
-	max-width: 90%;
-	max-height: 80%;
-	margin-top: 2%;
-}
+
 
 .lightbox:target {
 	/** Remove default browser outline */
