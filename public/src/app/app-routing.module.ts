@@ -7,16 +7,14 @@ import { BoardsComponent } from './boards/boards.component';
 import { PinsComponent } from './pins/pins.component';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
+import { InterestComponent } from './interest/interest.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LogregComponent },
   { path: 'home', component: HomeComponent}, 
-<<<<<<< HEAD
-  { path: 'explore', component: ExploreComponent},
-=======
   { path: 'explore', component: ExploreComponent },
   { path: 'pinstuff', component: PinsComponent },
->>>>>>> 73763c4a0766034fb9b88251de19eea72ff067ed
+  { path: 'interest', component: InterestComponent },  
   { path: 'profile', component: ProfileComponent,children:[
       { path: 'boards', component: BoardsComponent },
       { path: 'pins', component: PinsComponent },

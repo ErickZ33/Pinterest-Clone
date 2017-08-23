@@ -24,11 +24,28 @@ module.exports = {
                 if (err) {
                     res.json(err);
                 } else {
-                    console.log(user)
+                    currentUser = user.email
+                    console.log(currentUser)
                     res.json(user);
                 }
             });
         });
+    },
+    addUserInterest: function (req, res) {
+        User.findOne({email: currentUser}, function(err, user){
+            console.log('addUserInterest function-------------')
+            console.log(user)
+            if(err){
+                console.log(err)
+            }
+            else{
+                for(var k=0;k<req.body.interest.length;k++){
+                    user.interests.push(req.body.interest[k])
+                }
+                console.log(user)
+                res.json(user);
+            }
+        })
     }, 
     checkEmail: function (req, res) {
         User.find({email: req.body.email}, function(err, user){

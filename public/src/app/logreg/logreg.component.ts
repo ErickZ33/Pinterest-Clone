@@ -18,6 +18,8 @@ export class LogregComponent implements OnInit {
   valid = false
   currentUser
   validUser
+  counter = 0
+  topics = false
 
 
   user = {
@@ -55,7 +57,7 @@ export class LogregComponent implements OnInit {
 
   addUser(){
     this._pinService.sendUser(this.user).then(user => this.validUser = user).catch(err => console.log(err));   
-    this._router.navigateByUrl('/home'); 
+    this._router.navigateByUrl('/interest'); 
   }
 
   loginForm(){
