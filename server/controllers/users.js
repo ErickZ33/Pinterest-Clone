@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Board = mongoose.model('Board');
+var Pin = mongoose.model('Pin');
 var currentUser = []
 
 module.exports = {
@@ -25,7 +26,6 @@ module.exports = {
                     res.json(err);
                 } else {
                     currentUser = user.email
-                    console.log(currentUser)
                     res.json(user);
                 }
             });
@@ -33,8 +33,6 @@ module.exports = {
     },
     addUserInterest: function (req, res) {
         User.findOne({email: currentUser}, function(err, user){
-            console.log('addUserInterest function-------------')
-            console.log(user)
             if(err){
                 console.log(err)
             }
@@ -42,7 +40,6 @@ module.exports = {
                 for(var k=0;k<req.body.interest.length;k++){
                     user.interests.push(req.body.interest[k])
                 }
-                console.log(user)
                 res.json(user);
             }
         })
@@ -74,14 +71,12 @@ module.exports = {
                 console.log(err)
             }
             else{
-                console.log(user,"controller")
                 res.json(user);
             }
         })
     },
     getBoards: function(req,res){
         User.findOne({email: currentUser}, function(err, user){
-            console.log("boards BE: ", user);
             if (err) {
                 console.log(err);
             } else {
@@ -90,12 +85,29 @@ module.exports = {
                         console.log(err)
                     }
                     else{
-                        console.log("inside boards backend function: ", boards);
                         res.json(boards);
                     }
                 });
             }
         })
-        
+    },
+    grabUserPins: function(req, res) {
+        User.findOne({email: currentUser}, function(err, user){
+            if(err){
+                console.log(err)
+            }
+            else{
+                Pin.find({creator: user._id}, function(err, pins){
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        console.log('FOUND USER PINSSS!!!!')
+                        console.log(pins)
+                        res.json(pins);
+                    }
+                })
+            }
+        })
     }
 }    

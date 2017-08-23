@@ -8,10 +8,6 @@ export class PinService {
 
   constructor(private _http: Http) { }
 
-  retrieveUsers() {
-    return this._http.get('/api/users').map(data => data.json()).toPromise();
-  }
-
   addUserInterest(interest) {
     return this._http.post('/api/addUserInterest', {'interest':interest}).map(data => data.json()).toPromise();
   }
@@ -50,6 +46,10 @@ export class PinService {
 
   sendPin(pin){
     return this._http.post('/api/createPin', pin).map(data => data.json()).toPromise();
+  }
+
+  grabUserPins(){
+    return this._http.get('/api/grabUserPins').map(data => data.json()).toPromise();    
   }
 
 }

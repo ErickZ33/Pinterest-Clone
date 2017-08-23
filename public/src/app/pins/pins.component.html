@@ -11,10 +11,8 @@
 </div>
 
 <a class="lightbox" id="newpin">
-        <div class="newBoard">
-          <a class="close" href="profile/pins#">X</a>
-
-
+  <div class="newBoard">
+<a class="close" href="profile/pins#">X</a>
 
 <h2>Create a new pin</h2>
 <div *ngIf='!lastStep'>
@@ -51,5 +49,10 @@
 </div>
 
 </div></a>
+
+<div *ngFor="let pin of pins" id="userPins">
+  <img src="{{pin.image}}">
+</div>
+
   
 

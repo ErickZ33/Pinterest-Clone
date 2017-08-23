@@ -12,6 +12,7 @@ export class PinsComponent implements OnInit {
   currentUser
   lastStep = false;
   boards;
+  pins = []
 
   pin = {
     img: "",
@@ -34,7 +35,9 @@ export class PinsComponent implements OnInit {
       this.currentUser = currUser;
       this.pin.creator = currUser;
       this.grabBoards();
-    }).catch(err => console.log(err));    
+    }).catch(err => console.log(err));
+
+    this._pinService.grabUserPins().then(apiPins => this.pins = apiPins).catch(err => console.log(err));
   }
 
   grabBoards(){

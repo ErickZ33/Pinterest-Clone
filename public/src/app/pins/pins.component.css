@@ -132,3 +132,8 @@ hr{
 	/** Unhide lightbox **/
 	display: block;
 }
+
+#userPins{
+    display: inline-block;
+    vertical-align: top;
+}
