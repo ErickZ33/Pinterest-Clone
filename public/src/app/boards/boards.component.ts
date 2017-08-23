@@ -22,7 +22,6 @@ export class BoardsComponent implements OnInit {
     this._boardService.addBoard(this.board)
   }
   
-  
   showBoards(){
     this._boardService.showBoards()
     .then(data => this.boards = data)

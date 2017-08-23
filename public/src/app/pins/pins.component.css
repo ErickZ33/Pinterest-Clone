@@ -170,6 +170,7 @@ div.createBoard{
     width: 250px;
     border-radius:5px;
     display: inline-block;
+    vertical-align: top;
 }
 div.createBoard:hover{
     background-color: #E0E0E0;
@@ -248,8 +249,6 @@ hr{
 	background: rgba(0,0,0,0.8);
 }
 
-
-
 .lightbox:target {
 	/** Remove default browser outline */
 	outline: none;
@@ -258,7 +257,16 @@ hr{
 	display: block;
 }
 
-#userPins{
+.userPins{
     display: inline-block;
     vertical-align: top;
+    width: 650px;
+}
+.pinImages{
+    display: inline-block;  
+    margin-right: 15px;
+    width: 200px; 
+    border-radius: 5px;
+    vertical-align: top;
+    margin-bottom: 10px;
 }

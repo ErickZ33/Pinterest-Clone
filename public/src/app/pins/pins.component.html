@@ -55,8 +55,8 @@
 
 </div></a>
 
-<div *ngFor="let pin of pins" id="userPins">
-  <img src="{{pin.image}}">
+<div class="userPins">
+  <img *ngFor="let pin of pins" class="pinImages" src="{{pin.image}}">
 </div>
 
   
