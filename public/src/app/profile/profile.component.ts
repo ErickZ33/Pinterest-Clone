@@ -10,6 +10,7 @@ import { PinService } from '../pin.service';
 export class ProfileComponent implements OnInit {
 
   currentUser = []
+ 
 
   constructor(private _pinService:PinService, private _router: Router){}
   
