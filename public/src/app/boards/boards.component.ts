@@ -18,7 +18,7 @@ export class BoardsComponent implements OnInit {
   currentUser
 
   newBoard(){
-    this.board._userid=this.currentUser[0]._id
+    this.board._userid=this.currentUser._id
     this._boardService.addBoard(this.board)
   }
   

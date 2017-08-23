@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Board = mongoose.model('Board');
-var currentUser = []
+var currentUser
 
 module.exports = {
     createUser: function (req, res) {
@@ -69,7 +69,7 @@ module.exports = {
         })
     }, 
     getCurrentUser: function(req, res) {
-        User.find({email: currentUser}, function(err, user){
+        User.findOne({email: currentUser}, function(err, user){
             if(err){
                 console.log(err)
             }

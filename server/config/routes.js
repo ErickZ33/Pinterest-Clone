@@ -63,6 +63,10 @@ module.exports = function (app) {
         pins.create(req, res);
     })
 
+    app.get('/api/pins', function (req, res) {
+        pins.grab(req, res);
+    })
+
     app.all('*', function (req, res) {
         res.sendFile(path.resolve('./public/dist/index.html'));
     })

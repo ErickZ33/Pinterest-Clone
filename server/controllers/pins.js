@@ -49,6 +49,16 @@ module.exports = {
                 }
             });
         });
+    },
+
+    grab: function(req,res){
+        Pin.find({}, function(err, pins){
+            if (err){
+                console.log(err);
+            } else {
+                res.json(pins);
+            }
+        })
     }
 
 }

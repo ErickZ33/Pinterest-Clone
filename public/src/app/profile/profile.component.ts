@@ -9,13 +9,15 @@ import { PinService } from '../pin.service';
 })
 export class ProfileComponent implements OnInit {
 
-  currentUser = []
+  currentUser;
 
   constructor(private _pinService:PinService, private _router: Router){}
   
   ngOnInit() {
-    this._pinService.grabUser().then(currUser => this.currentUser = currUser).catch(err => console.log(err));    
-    console.log(this.currentUser)
+    this._pinService.grabUser().then(currUser => {
+      this.currentUser = currUser;
+      console.log(this.currentUser);
+    }).catch(err => console.log(err));    
   }
   
 }
