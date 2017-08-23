@@ -9,6 +9,9 @@ var PinSchema = new mongoose.Schema({
     description: {
         type: String
     },
+    title: {
+        type: String
+    },
     comments: [{
         type: Schema.Types.ObjectId, 
         ref: 'Comment'

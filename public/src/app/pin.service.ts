@@ -40,4 +40,12 @@ export class PinService {
     return this._http.get('/api/imageGrab').map(data => data.json()).toPromise();
   }
 
+  retrieveBoards(){
+    return this._http.get('/api/boards').map(data => data.json()).toPromise();
+  }
+
+  sendPin(pin){
+    return this._http.post('/api/createPin', pin).map(data => data.json()).toPromise();
+  }
+
 }

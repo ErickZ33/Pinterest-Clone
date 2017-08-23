@@ -61,5 +61,24 @@ module.exports = {
                 res.json(user);
             }
         })
+    },
+    getBoards: function(req,res){
+        User.findOne({email: currentUser}, function(err, user){
+            console.log("boards BE: ", user);
+            if (err) {
+                console.log(err);
+            } else {
+                Board.find({_owner: user._id}, function(err, boards){
+                    if(err){
+                        console.log(err)
+                    }
+                    else{
+                        console.log("inside boards backend function: ", boards);
+                        res.json(boards);
+                    }
+                });
+            }
+        })
+        
     }
 }    
