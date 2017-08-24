@@ -7,6 +7,8 @@
     height: 550px;
     border-radius: 10px;
     margin: auto;
+    margin-top: 25px;
+    background-color: #DCDCDC;
 }
 #header{
     height: 65px;

@@ -44,6 +44,7 @@ export class InterestComponent implements OnInit {
   counter(topic, index){
     this.interestCounter -= 1  
     if(this.interestCounter == 0){
+      this.interests[index].selected = true;              
       this.uniqueInterest.push(topic)     
       this._pinService.addUserInterest(this.uniqueInterest).then(interest => this.validInterests = interest).catch(err => console.log(err));   
       this.done = true
