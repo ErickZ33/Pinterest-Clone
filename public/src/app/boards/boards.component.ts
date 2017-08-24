@@ -19,20 +19,7 @@ export class BoardsComponent implements OnInit {
   viewing;
   pins = [];
   currentUser;
-  // currentUser =
-  // { _id: "599c766623ee7e78017ec7c1",
-  // updated_at: "2017-08-22T18:22:30.191Z",
-  // created_at: "2017-08-22T18:22:30.191Z",
-  // name: 'Julian Auza',
-  // age: 25,
-  // gender: 'custom',
-  // email: 'julianauza@gmail.com',
-  // password: 'Codingdojod1',
-  // __v: 0,
-  // boards: [],
-  // interests: [],
-  // following: [],
-  // followers: [] }
+ 
   
 
 
