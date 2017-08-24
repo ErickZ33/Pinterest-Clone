@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { PinService } from '../pin.service';
 
 @Component({
@@ -7,17 +7,26 @@ import { PinService } from '../pin.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
 export class ProfileComponent implements OnInit {
 
-  currentUser;
-
-
-  constructor(private _pinService:PinService, private _router: Router){}
+  currentUserID
+  currentUser
+  loggedIn = false
   
+  constructor(private _pinService: PinService, private _router: Router, private _route: ActivatedRoute) { }
+
   ngOnInit() {
-    this._pinService.grabUser().then(currUser => {
+
+    this._route.params.subscribe((params: Params) => {
+      this.currentUserID = params['userID'];
+    });
+
+    this._pinService.grabUserUsingID(this.currentUserID).then(currUser => {
       this.currentUser = currUser;
-    }).catch(err => console.log(err));    
+      this.loggedIn = true;
+    }).catch(err => console.log(err));
+
   }
-  
+
 }

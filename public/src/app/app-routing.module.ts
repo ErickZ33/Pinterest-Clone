@@ -15,10 +15,10 @@ const routes: Routes = [
   { path: 'explore', component: ExploreComponent },
   { path: 'pinstuff', component: PinsComponent },
   { path: 'interest', component: InterestComponent },  
-  { path: 'profile', component: ProfileComponent,children:[
-      { path: 'boards', component: BoardsComponent },
-      { path: 'pins', component: PinsComponent },
-  ]}
+  { path: 'profile/:userID', component: ProfileComponent,children:[ 
+    { path: 'boards', component: BoardsComponent },
+    { path: 'pins', component: PinsComponent },
+  ]},
 ];
 
 @NgModule({
