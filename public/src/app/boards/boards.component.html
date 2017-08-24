@@ -1,6 +1,6 @@
 <div class="boardComp">
   <div class="displayBoard" *ngIf="!boardView">
-    <a href="profile/boards#newboard">
+    <a href="profile/{{currentUser._id}}/boards#newboard">
       <div class="graysquare">
         <img class="plus" src="/assets/images/plus.png">
       </div>
@@ -9,7 +9,6 @@
       </div>
     </a>
   </div>
-
 
   <ng-container *ngFor="let board of boards">
     <ng-container *ngIf="!boardView">
@@ -64,7 +63,7 @@
   <!-- lightbox container hidden with CSS -->
   <a class="lightbox" id="newboard">
     <div class="newBoard">
-      <a class="close" href="profile/boards#" (click)="ngOnInit(); createNewStatus()">X</a>
+      <a class="close" href="profile/{{currentUser._id}}/boards#" (click)="ngOnInit(); createNewStatus()">X</a>
       <h3 *ngIf="createNew"> Create New Board </h3>
       <h3 *ngIf="!createNew"> New Board Created!</h3>
       <br>
@@ -79,7 +78,7 @@
           </form>
         </div>
         <div *ngIf="!createNew" style="text-align:center;">
-          <a href="profile/boards#" (click)="createNewStatus();ngOnInit()" style="text-decoration:underline;color:#888;font-size:20px;">back to boards</a>
+          <a href="profile/{{currentUser._id}}/boards#" (click)="createNewStatus();ngOnInit()" style="text-decoration:underline;color:#888;font-size:20px;">back to boards</a>
         </div>
 
 
