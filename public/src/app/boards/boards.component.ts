@@ -16,7 +16,24 @@ export class BoardsComponent implements OnInit {
   boardView=false
   board=new Board()
   createNew=true
-  currentUser=[]
+  viewing;
+  pins = [];
+  currentUser;
+  // currentUser =
+  // { _id: "599c766623ee7e78017ec7c1",
+  // updated_at: "2017-08-22T18:22:30.191Z",
+  // created_at: "2017-08-22T18:22:30.191Z",
+  // name: 'Julian Auza',
+  // age: 25,
+  // gender: 'custom',
+  // email: 'julianauza@gmail.com',
+  // password: 'Codingdojod1',
+  // __v: 0,
+  // boards: [],
+  // interests: [],
+  // following: [],
+  // followers: [] }
+  
 
 
   newBoard(){
@@ -37,16 +54,25 @@ export class BoardsComponent implements OnInit {
     this.boardid.content=id
     this._boardService.deleteBoard(this.boardid)
   }
-  display(id){
-    console.log(id)
-
+  display(board){
+    console.log(board)
+    this.boardView=true
+    this.viewing=board
+  }
+  allBoards(){
+    this.boardView=false
   }
 
   ngOnInit() {
-   this._pinService.grabUser().then(currUser => this.currentUser = currUser).catch(err => console.log(err));
+  this._pinService.grabUser().then(currUser => this.currentUser = currUser).catch(err => console.log(err));
   this._boardService.showBoards()
     .then(data => this.boards = data)
     .catch(err => console.log(err));
+  this.populatePins()
+  }
+
+  populatePins(){
+      this._pinService.retrievePins().then(pins => this.pins = pins).catch(err => console.log(err));
   }
 
 

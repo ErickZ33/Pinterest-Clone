@@ -10,6 +10,21 @@ import { PinService } from '../pin.service';
 export class PinsComponent implements OnInit {
   imageOptions = false;
   currentUser
+  // currentUser =
+  // { _id: "599c766623ee7e78017ec7c1",
+  // updated_at: "2017-08-22T18:22:30.191Z",
+  // created_at: "2017-08-22T18:22:30.191Z",
+  // name: 'Julian Auza',
+  // age: 25,
+  // gender: 'custom',
+  // email: 'julianauza@gmail.com',
+  // password: 'Codingdojod1',
+  // __v: 0,
+  // boards: [],
+  // interests: [],
+  // following: [],
+  // followers: [] }
+
   lastStep = false;
   boards;
   pins = []
@@ -36,7 +51,6 @@ export class PinsComponent implements OnInit {
       this.pin.creator = currUser;
       this.grabBoards();
     }).catch(err => console.log(err));
-
     this._pinService.grabUserPins().then(apiPins => this.pins = apiPins).catch(err => console.log(err));
   }
 

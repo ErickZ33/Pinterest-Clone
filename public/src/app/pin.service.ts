@@ -50,8 +50,9 @@ export class PinService {
 
   retrievePins(){
     return this._http.get('/api/pins').map(data => data.json()).toPromise();
+  }
 
-  grabUserPins() {
+  grabUserPins(){
     return this._http.get('/api/grabUserPins').map(data => data.json()).toPromise();    
   }
 

@@ -1,8 +1,8 @@
 div.graysquare{
-    height:100px;
-    width:175px;
+    height:160px;
+    width:260px;
     background-color: #EFEFEF;
-    padding: 30px;
+    padding: 5px;
     border-radius:5px;
     margin:auto;
 }
@@ -11,15 +11,15 @@ div.container{
 }
 img.plus{
     text-align: center;
-    margin-left: 66px;
-    margin-top: 21px;
+    margin-left: 104px;
+    margin-top: 52px;
     height:50px;
     width:53px;
 }
 div.displayBoard{
     padding-top:10px;
     height:200px;
-    width: 250px;
+    width: 290px;
     border-radius:5px;
     display: inline-block;
 }
@@ -31,12 +31,50 @@ div.displayBoard:hover{
 div.displayBoard:hover a{
     color: #888;
 }
+div.boardPins{
+    padding:20px;
+    width:900px;;
+    margin: auto;
+    padding-left:0px;
+}
+ div.thumbnail{
+	/* column-width: 140px;  */
+    column-gap: 0px;    
+    columns:4;       
+    /* width: 90%; */
+    width:260px; 
+    max-height: 165px;  
+    max-width:100%;    
+    /* height: auto; */
+    overflow: hidden;
+} 
 
+div.pinsContainer{
+	column-width: 320px;
+    column-gap: 2px;
+    columns:4; 
+    width: 90%;
+    width: 900px;
+    /* max-height: 970px;   */
+    margin: auto;
+}
+div.pins{
+    background-color: white;
+    display: inline-block;
+    width:200px;
+    height:auto;
+    padding:10px;
+    margin-bottom:5px;
+    border-radius:5px;
+}
+div.pins:hover{
+    background-color: #E0E0E0;
+} 
 a.delete{
     display: inline-block;
     color: white;
     font-size:12px;
-    float: right;
+    float:right;
     padding:12px;
 }
 div.newBoard{
@@ -51,6 +89,7 @@ div.newBoard{
 }
 div.boardComp{
     padding:20px;
+    width:900px;
 }
 p.boardLabel{
     margin-left:10px;
