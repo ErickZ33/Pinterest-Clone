@@ -1,13 +1,14 @@
 <div class="container">
   <h1>home</h1>
-  {{currentUser.name}}
+  <div *ngIf="currentUser">{{currentUser | json}}</div>
+
   <br>
   <!-- {{currentUser|json}} -->
 </div>
 <div class="pinsContainer">
   <div *ngFor="let pin of pins" class="pins">
-    <img src="{{pin.image}}" style="width:200px;border-radius:5px;">
-    <p style="color:#888;margin:2px;display:inline-block">{{pin.title}}</p>
+    <a [routerLink]="['/', 'pin', pin._id]"><img src="{{pin.image}}" style="width:200px;border-radius:5px;"></a>
+    <p *ngIf="pin" style="color:#888;margin:2px;display:inline-block">{{pin.title}}</p>
     <a href="home#addtoboard" (click)="pinAdding(pin)" class="plus" style="text-decoration:none;float:right;display:inline-block;font-size:20px;margin-right:5px">+</a>
   </div>
 </div>
@@ -21,8 +22,8 @@
     <hr>
     <div class="LightBoxContentContainter">
       <div class="addPinThumb">
-        <h4 style="color:#888">{{addPinBoard.title}}</h4>
-        <img src="{{addPinBoard.image}}" style="width:200px;border-radius:5px;">
+        <h4 *ngIf="addPinBoard" style="color:#888">{{addPinBoard.title}}</h4>
+        <img *ngIf="addPinBoard" src="{{addPinBoard.image}}" style="width:200px;border-radius:5px;">
       </div>
 
       <div class="addBoardSelect">
