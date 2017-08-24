@@ -67,7 +67,6 @@ export class LogregComponent implements OnInit {
   }
 
   loginUser(){
-    this._pinService.loggedIn = true;
       this._pinService.login(this.login).then(apiUser => {
         this.currentUser = apiUser;        
         if(apiUser.length >=1){

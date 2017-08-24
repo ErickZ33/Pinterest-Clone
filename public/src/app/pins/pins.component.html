@@ -64,8 +64,8 @@
   <div class="frame" *ngFor="let pin of pins">
     <h4 class='title'>{{pin.title}}</h4>
     <div class="img-learn">Learn more at:</div>
-    <div class="img-link"><a href='{{pin.url}}'>{{pin.url}}</a></div>
-    <a href="www.google.com"><img class="pinImages" src="{{pin.image}}"></a>
+    <div class="img-link"><a href='{{pin.url}}' target="_blank">{{pin.url}}</a></div>
+    <a [routerLink]="['/', 'pin', pin._id]"><img class="pinImages" src="{{pin.image}}"></a>
   </div>
 </div>
 
