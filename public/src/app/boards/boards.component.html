@@ -48,7 +48,7 @@
           <ng-container *ngFor="let img of pins">
             <!-- <div class="pinsContainer"> -->
             <div *ngIf="img._id==pin" class="pins">
-              <img src="{{img.image}}" height="auto" width="200" style="border-radius:5px;">
+              <a [routerLink]="['/', 'pin', img._id]"><img src="{{img.image}}" height="auto" width="200" style="border-radius:5px;"></a>
               <p style="margin:2px">{{img.title}}</p>
             </div>
             <!-- </div> -->
