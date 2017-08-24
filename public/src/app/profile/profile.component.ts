@@ -17,7 +17,6 @@ export class ProfileComponent implements OnInit {
   constructor(private _pinService: PinService, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit() {
-
     this._route.params.subscribe((params: Params) => {
       this.currentUserID = params['userID'];
     });

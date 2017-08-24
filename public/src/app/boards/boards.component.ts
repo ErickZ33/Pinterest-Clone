@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import { Board } from "../board";
 import { PinService } from '../pin.service';
 import { BoardService } from '../board.service';
@@ -12,14 +13,14 @@ import { BoardService } from '../board.service';
 export class BoardsComponent implements OnInit {
   boards;
   boardid={content:""}
-  constructor(private _pinService:PinService,private _boardService:BoardService){}
+  constructor(private _pinService:PinService,private _boardService:BoardService, private _route: ActivatedRoute){}
   boardView=false
   board=new Board()
   createNew=true
   viewing;
   pins = [];
   currentUser;
-
+  
   newBoard(){
     this.board._userid=this.currentUser._id
     this._boardService.addBoard(this.board)
@@ -56,7 +57,7 @@ export class BoardsComponent implements OnInit {
   this._boardService.showBoards()
     .then(data => this.boards = data)
     .catch(err => console.log(err));
-  this.populatePins()
+  this.populatePins();
   }
 
   populatePins(){

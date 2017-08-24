@@ -14,7 +14,14 @@ export class SinglePinComponent implements OnInit {
   pin;
   creator;
 
+
+
   constructor(private _pinService: PinService, private _router: Router, private _route: ActivatedRoute) { }
+
+  goBack(){
+    window.history.back();
+  }
+
   ngOnInit() {
     this._route.params.subscribe((params: Params) => {
       this.pinID = params['pinID'];

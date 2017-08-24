@@ -1,6 +1,7 @@
 <div class='container'>
 <div class='frame'>
   <h2>{{pin.title}}</h2>
+  <button (click)="goBack()">X</button>
   <a href="{{pin.url}}" target="_blank"><img src='{{pin.image}}'></a>
   <a [routerLink]="['/', 'profile', creator._id, 'boards']">Posted by: {{creator.name}}</a>
   <p>{{pin.description}}</p>
