@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.imglogo="/assets/images/Pinterest-logo.png"
   }
-
+  
   logout(){
     
   }

@@ -26,4 +26,9 @@ export class BoardService {
     .map(data => data.json())
     .toPromise();
   }
+  addToBoard(info){
+    return this._http.post('/addToBoard',info)
+    .map(data => data.json())
+    .toPromise();
+  }
 }
