@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardsComponent } from './boards/boards.component';
 import { PinsComponent } from './pins/pins.component';
 import { InterestComponent } from './interest/interest.component';
+import { SinglePinComponent } from './single-pin/single-pin.component';
     
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { InterestComponent } from './interest/interest.component';
     ProfileComponent,
     BoardsComponent,
     PinsComponent,
-    InterestComponent
+    InterestComponent,
+    SinglePinComponent
   ],
   imports: [
     BrowserModule,

@@ -68,6 +68,10 @@ module.exports = function (app) {
         pins.grab(req, res);
     });
 
+    app.post('/api/singlepin', function (req, res) {
+        pins.one(req, res);
+    });
+
     app.get('/api/grabUserPins', function (req, res) {
         users.grabUserPins(req, res);
     })
