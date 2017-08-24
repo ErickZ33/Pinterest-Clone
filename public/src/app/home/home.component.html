@@ -3,7 +3,7 @@
   <div *ngIf="currentUser">{{currentUser | json}}</div>
 
   <br>
-  <!-- {{boards|json}} -->
+  <!-- {{currentUser|json}} -->
 </div>
 <div class="pinsContainer">
   <div *ngFor="let pin of pins" class="pins">
@@ -12,8 +12,6 @@
     <a href="home#addtoboard" (click)="pinAdding(pin)" class="plus" style="text-decoration:none;float:right;display:inline-block;font-size:20px;margin-right:5px">+</a>
   </div>
 </div>
-
-
 
 <a class="lightbox" id="addtoboard">
   <div class="addToBoard">
