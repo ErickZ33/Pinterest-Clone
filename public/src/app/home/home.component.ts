@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PinService } from '../pin.service';
+import { BoardService } from '../board.service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,31 @@ import { PinService } from '../pin.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  boards;
+  addPinBoard;
   pins = [];
-  constructor(private _pinService:PinService, private _router: Router){}
-
+  constructor(private _pinService:PinService, private _router: Router,private _boardService:BoardService){}
+  currentUser;
+  addProcess={postid:"",boardid:""}
 
   ngOnInit() {
+    this._pinService.grabUser().then(currUser => this.currentUser = currUser).catch(err => console.log(err));
     this.populatePins();
+    this.getBoards();
+  }
+  pinAdding(pin){
+    this.addPinBoard=pin;
+  }
+  addToBoard(board,pin){
+  this.addProcess.postid=pin
+  this.addProcess.boardid=board
+  this._boardService.addToBoard(this.addProcess)
+  }
+
+  getBoards(){
+    this._boardService.showBoards()
+      .then(data => this.boards = data)
+      .catch(err => console.log(err));
   }
 
   populatePins(){
