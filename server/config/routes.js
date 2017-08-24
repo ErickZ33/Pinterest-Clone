@@ -61,6 +61,10 @@ module.exports = function (app) {
         pins.create(req, res);
     })
 
+    app.post('/addToBoard', function (req, res) {
+        boards.addToBoard(req, res);
+    })
+
     app.get('/api/pins', function (req, res) {
         pins.grab(req, res);
     })
