@@ -165,7 +165,6 @@ hr{
 .lightbox:target {
 	/** Remove default browser outline */
 	outline: none;
-
 	/** Unhide lightbox **/
 	display: block;
 }
