@@ -19,9 +19,6 @@ export class BoardsComponent implements OnInit {
   viewing;
   pins = [];
   currentUser;
- 
-  
-
 
   newBoard(){
     this.board._userid=this.currentUser._id

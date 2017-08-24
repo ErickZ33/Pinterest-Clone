@@ -29,7 +29,6 @@ export class PinService {
   }
 
   sendUrl(url) {
-    console.log("in service: ", url)
     var context = {
       myUrl: url.address
     }
@@ -51,7 +50,7 @@ export class PinService {
   retrievePins(){
     return this._http.get('/api/pins').map(data => data.json()).toPromise();
   }
-
+  
   grabUserPins(){
     return this._http.get('/api/grabUserPins').map(data => data.json()).toPromise();    
   }

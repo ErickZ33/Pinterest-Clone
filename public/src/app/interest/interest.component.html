@@ -6,9 +6,9 @@
   <div id="interestContainer">
     <div class="interest" *ngFor="let interest of interests, let idx = index">
       <img (click)="counter(interest.topic, idx)" src="{{interest.url}}">
-      <p [ngClass]="{ 'red': interest.selected}">{{interest.topic}}</p>
+      <p [ngClass]="{'red': interest.selected}">{{interest.topic}}</p>
     </div>
   </div>
-  <button *ngIf="counterText" disabled>Follow {{interestCounter}} more</button>
+  <button *ngIf="counterText" style="background-color:white;border-radius:5px;border:none;color:#555555" disabled>Follow {{interestCounter}} more</button>
   <button (click)="goHome()" *ngIf="done" style="background-color:#BD081C;color:white">Done</button>  
 </div>
