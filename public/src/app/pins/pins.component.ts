@@ -10,6 +10,7 @@ import { PinService } from '../pin.service';
 export class PinsComponent implements OnInit {
   imageOptions = false;
   currentUser
+
   lastStep = false;
   boards;
   pins = []
@@ -28,6 +29,7 @@ export class PinsComponent implements OnInit {
   }
 
   imageList = [];
+
   constructor(private _pinService:PinService, private _router: Router){}
   
   ngOnInit() {
@@ -36,7 +38,6 @@ export class PinsComponent implements OnInit {
       this.pin.creator = currUser;
       this.grabBoards();
     }).catch(err => console.log(err));
-
     this._pinService.grabUserPins().then(apiPins => this.pins = apiPins).catch(err => console.log(err));
   }
 
@@ -45,20 +46,14 @@ export class PinsComponent implements OnInit {
   }
 
   gotUrl() {
-    console.log(this.url);
     this.pin.url = this.url.address;
     this._pinService.sendUrl(this.url).then(response => { 
       this.imageList = response;
-      console.log("in component:");
-      console.log(this.imageList);
       this.imageOptions = true;
     }).catch(err => console.log(err));
   }
 
   chooseImg(link){
-    console.log("inside chooseImg function: ", link);
-    console.log(this.currentUser);
-    console.log(this.boards);
     this.pin.img = link;
     this.imageOptions = false;
     this.lastStep = true;

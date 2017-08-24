@@ -8,7 +8,6 @@ var cheerio = require('cheerio');
 module.exports = {
 
     parseImages: function(req,res){
-        console.log("made it to parse");
         request(req.body.myUrl, function (error, response, body) {
             var $ = cheerio.load(body);
             var listTest = $('img').map(function(){
@@ -25,9 +24,8 @@ module.exports = {
 
     create: function(req,res){
         Board.findOne({_id: req.body.board}, function(err, board){
-            console.log(board);
             var pin = new Pin();
-            pin.creator = req.body.creator[0];
+            pin.creator = req.body.creator;
             pin.description = req.body.description;
             pin.url = req.body.url;
             pin.image = req.body.img;
@@ -42,7 +40,6 @@ module.exports = {
                         if (err){
                             console.log(err);
                         } else {
-                            console.log("inside pinny create: ", pin)
                             res.json(pin);
                         }
                     });

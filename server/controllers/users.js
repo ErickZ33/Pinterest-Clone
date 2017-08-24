@@ -67,6 +67,7 @@ module.exports = {
     }, 
     getCurrentUser: function(req, res) {
         User.findOne({email: currentUser}, function(err, user){
+            console.log(user)
             if(err){
                 console.log(err)
             }
@@ -98,12 +99,12 @@ module.exports = {
             }
             else{
                 Pin.find({creator: user._id}, function(err, pins){
+                    console.log("CURRENT USER PINS!!!!!")
+                    console.log(pins)
                     if(err){
                         console.log(err);
                     }
                     else{
-                        console.log('FOUND USER PINSSS!!!!')
-                        console.log(pins)
                         res.json(pins);
                     }
                 })

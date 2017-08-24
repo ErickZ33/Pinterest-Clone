@@ -29,7 +29,6 @@ export class PinService {
   }
 
   sendUrl(url) {
-    console.log("in service: ", url)
     var context = {
       myUrl: url.address
     }

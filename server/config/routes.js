@@ -73,8 +73,4 @@ module.exports = function (app) {
         res.sendFile(path.resolve('./public/dist/index.html'));
     })
 
-
-    
-
-    
 }
