@@ -22,8 +22,6 @@ module.exports = {
                         console.log(error);
                     }
                     else {
-                        console.log(board, "last")
-                        console.log('NOTE SUCCESFULLY SAVED!!!!');
                         res.json({});
                     }
                 })

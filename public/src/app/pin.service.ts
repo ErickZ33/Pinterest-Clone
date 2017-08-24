@@ -8,6 +8,10 @@ export class PinService {
 
   constructor(private _http: Http) { }
 
+  grabUserUsingID(userID){
+    return this._http.post('/api/grabUserUsingID', {'userID':userID}).map(data => data.json()).toPromise();    
+  }
+
   addUserInterest(interest) {
     return this._http.post('/api/addUserInterest', {'interest':interest}).map(data => data.json()).toPromise();
   }
@@ -49,9 +53,16 @@ export class PinService {
 
   retrievePins(){
     return this._http.get('/api/pins').map(data => data.json()).toPromise();
-  }
-  
-  grabUserPins(){
+  };
+
+  retrievePin(id){
+    var context = {
+      id: id
+    }
+    return this._http.post('/api/singlepin', context).map(data => data.json()).toPromise();
+  };
+
+  grabUserPins() {
     return this._http.get('/api/grabUserPins').map(data => data.json()).toPromise();    
   }
 

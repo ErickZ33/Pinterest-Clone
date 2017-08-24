@@ -25,6 +25,7 @@ export class BoardsComponent implements OnInit {
     this._boardService.addBoard(this.board)
     this.createNew=false
   }
+
   createNewStatus(){
     this.createNew=true
   }
@@ -34,15 +35,18 @@ export class BoardsComponent implements OnInit {
     .then(data => this.boards = data)
     .catch(err => console.log(err));
   }
+
   delete(id){
     this.boardid.content=id
     this._boardService.deleteBoard(this.boardid)
   }
+
   display(board){
     console.log(board)
     this.boardView=true
     this.viewing=board
   }
+
   allBoards(){
     this.boardView=false
   }
@@ -58,7 +62,5 @@ export class BoardsComponent implements OnInit {
   populatePins(){
       this._pinService.retrievePins().then(pins => this.pins = pins).catch(err => console.log(err));
   }
-
-
 
 }

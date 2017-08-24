@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PinService } from '../pin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +9,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  userID
   imglogo="/assets/images/Pinterest-logo.png"
-  constructor() { }
 
+  constructor(private _pinService: PinService, private _router: Router) { }
+  
   ngOnInit() {
     this.imglogo="/assets/images/Pinterest-logo.png"
   }
-  
-  logout(){
-    
+
+  getUser(){
+    this._pinService.grabUser().then(currUser => {
+      this.userID = currUser._id;
+      this._router.navigateByUrl('/profile/' + this.userID + '/boards')
+    }).catch(err => console.log(err));
   }
 
 }

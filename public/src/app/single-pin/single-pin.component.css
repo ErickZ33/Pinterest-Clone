@@ -1,0 +1,13 @@
+.container{
+    width: 800px;
+    margin: auto;
+}
+
+.frame{
+    width: 600px;
+    margin: auto;
+}
+
+.frame h2{
+    margin-bottom: 5px;
+}

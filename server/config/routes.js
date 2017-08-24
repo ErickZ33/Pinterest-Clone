@@ -25,6 +25,10 @@ module.exports = function (app) {
         users.getCurrentUser(req, res);
     })
 
+    app.post('/api/grabUserUsingID', function (req, res) {
+        users.grabUserUsingID(req, res);
+    })
+
     app.post('/api/imageOptions', function (req, res) {
         console.log("in routes");
         pins.parseImages(req, res);
@@ -33,7 +37,6 @@ module.exports = function (app) {
     app.get('/api/imageGrab', function (req, res) {
         pins.parseImages(req, res);
     })
-
 
     //ADD BOARD
     app.post('/newBoard', function (req, res) {
@@ -67,7 +70,11 @@ module.exports = function (app) {
 
     app.get('/api/pins', function (req, res) {
         pins.grab(req, res);
-    })
+    });
+
+    app.post('/api/singlepin', function (req, res) {
+        pins.one(req, res);
+    });
 
     app.get('/api/grabUserPins', function (req, res) {
         users.grabUserPins(req, res);

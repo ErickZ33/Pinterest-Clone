@@ -8,6 +8,8 @@ import { PinsComponent } from './pins/pins.component';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
 import { InterestComponent } from './interest/interest.component';
+import { SinglePinComponent } from './single-pin/single-pin.component';
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LogregComponent },
@@ -15,10 +17,11 @@ const routes: Routes = [
   { path: 'explore', component: ExploreComponent },
   { path: 'pinstuff', component: PinsComponent },
   { path: 'interest', component: InterestComponent },  
-  { path: 'profile', component: ProfileComponent,children:[
-      { path: 'boards', component: BoardsComponent },
-      { path: 'pins', component: PinsComponent },
-  ]}
+  { path: 'pin/:pinID', component: SinglePinComponent },  
+  { path: 'profile/:userID', component: ProfileComponent,children:[ 
+    { path: 'boards', component: BoardsComponent },
+    { path: 'pins', component: PinsComponent },
+  ]},
 ];
 
 @NgModule({
