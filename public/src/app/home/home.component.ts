@@ -15,12 +15,17 @@ export class HomeComponent implements OnInit {
   constructor(private _pinService:PinService, private _router: Router,private _boardService:BoardService){}
   currentUser;
   addProcess={postid:"",boardid:""}
+  logged = false
 
   ngOnInit() {
-    this._pinService.grabUser().then(currUser => this.currentUser = currUser).catch(err => console.log(err));
-    this.populatePins();
-    this.getBoards();
+    this._pinService.grabUser().then(currUser => {
+      this.currentUser = currUser;
+      this.populatePins();
+      this.getBoards();
+      this.logged = true;
+    }).catch(err => console.log(err));
   }
+
   pinAdding(pin){
     this.addPinBoard=pin;
   }
