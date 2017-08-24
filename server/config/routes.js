@@ -63,6 +63,8 @@ module.exports = function (app) {
 
     app.get('/api/pins', function (req, res) {
         pins.grab(req, res);
+    });
+
     app.get('/api/grabUserPins', function (req, res) {
         users.grabUserPins(req, res);
     })

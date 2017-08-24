@@ -16,7 +16,7 @@ export class BoardsComponent implements OnInit {
   boardView=false
   board=new Board()
   createNew=true
-  currentUser=[]
+  currentUser
 
 
   newBoard(){
