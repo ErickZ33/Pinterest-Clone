@@ -40,7 +40,14 @@ module.exports = {
                 for(var k=0;k<req.body.interest.length;k++){
                     user.interests.push(req.body.interest[k])
                 }
-                res.json(user);
+                user.save(function (err, user) {
+                    if (err) {
+                        res.json(err);
+                    } else {
+                        console.log(user)
+                        res.json(user);
+                    }
+                });
             }
         })
     }, 

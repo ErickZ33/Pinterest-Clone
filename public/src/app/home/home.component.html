@@ -1,9 +1,7 @@
 <div class="container">
   <h1>home</h1>
-  <div *ngIf="currentUser">{{currentUser | json}}</div>
-
+  <!-- <p *ngIf="currentUser">{{currentUser | json}}</p> -->
   <br>
-  <!-- {{currentUser|json}} -->
 </div>
 <div class="pinsContainer">
   <div *ngFor="let pin of pins" class="pins">
