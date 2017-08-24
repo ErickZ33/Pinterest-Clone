@@ -12,6 +12,13 @@
     display: inline-block;
     overflow: hidden;
 }
+img.plus{
+    text-align: center;
+    margin-left: 65px;
+    margin-top: 25px;
+    height:50px;
+    width:53px;
+}
 
 .pin-choice img{
     width: 270px;
@@ -22,7 +29,7 @@
     margin-top: 25px;
     box-sizing: border-box;
     padding-left: 20px;
-    margin-bottom: 
+    margin-bottom: 0px;
 }
 
 .choose-text{
