@@ -67,6 +67,7 @@ module.exports = {
     }, 
     getCurrentUser: function(req, res) {
         User.findOne({email: currentUser}, function(err, user){
+            console.log(user)
             if(err){
                 console.log(err)
             }
