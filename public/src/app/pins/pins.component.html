@@ -34,10 +34,10 @@
   </div>
 
   <div class="right">
-  <form class="form2" (submit)="createPin()"> 
+  <form class="form2" (submit)="createPin()" #pinData="ngForm"> 
     <div class='form-section'>
       <div class='label1'>Give your pin a title:</div>
-      <input class='input1' type="text" name="title" [(ngModel)]="pin.title">
+      <input class='input1' type="text" name="title" required #title="ngModel" [(ngModel)]="pin.title">
     </div>
     <div class='form-section'>
       <div class='label2'>Description:</div>
@@ -48,7 +48,12 @@
       <input type="radio" name="board" value="{{board._id}}" [(ngModel)]="pin.board">
       <p>{{board.name}}</p>
     </div>
-    <div><button class="create-pin" type="submit">Create Pin</button></div>
+    <div class='form-section'>
+    <div class="board-text">Select a pin category:</div>
+    <select class="categories" name="category" required [(ngModel)]="pin.category" #category="ngModel">
+      <option *ngFor="let interest of interests" value="{{interest.topic}}">{{interest.topic}}</option>
+    </select></div>
+    <div><button class="create-pin" type="submit" [disabled]="!pinData.valid">Create Pin</button></div>
   </form>
   </div>
 </div>
@@ -56,8 +61,14 @@
 </div></a>
 
 <div class="userPins">
-  <img *ngFor="let pin of pins" class="pinImages" src="{{pin.image}}">
+  <div class="frame" *ngFor="let pin of pins">
+    <h4 class='title'>{{pin.title}}</h4>
+    <div class="img-learn">Learn more at:</div>
+    <div class="img-link"><a href='{{pin.url}}'>{{pin.url}}</a></div>
+    <a href="www.google.com"><img class="pinImages" src="{{pin.image}}"></a>
+  </div>
 </div>
+
 
   
 

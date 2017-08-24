@@ -29,6 +29,7 @@ module.exports = {
             pin.description = req.body.description;
             pin.url = req.body.url;
             pin.image = req.body.img;
+            pin.category = req.body.category;
             pin.comments = [];
             pin.title = req.body.title;
             board._pins.push(pin);
@@ -46,6 +47,26 @@ module.exports = {
                 }
             });
         });
+    },
+
+    one: function(req,res){
+        Pin.findOne({_id: req.body.id}, function(err, pin){
+            if (err){
+                console.log(err);
+            } else {
+                User.findOne({_id: pin.creator}, function(err, user){
+                    if(err){
+                        console.log(err);
+                    } else {
+                        var pinfo = {
+                            pin: pin,
+                            user: user
+                        }
+                        res.json(pinfo);
+                    }
+                })
+            }
+        })
     },
 
     grab: function(req,res){
