@@ -90,6 +90,14 @@ module.exports = function (app) {
         users.logout(req, res);
     })
 
+    app.post('/api/removePin', function (req, res) {
+        pins.removePin(req, res);
+    })
+
+    app.post('/api/viewingBoard', function (req, res) {
+        boards.grabMyBoard(req, res);
+    })
+
     app.all('*', function (req, res) {
         res.sendFile(path.resolve('./public/dist/index.html'));
     })

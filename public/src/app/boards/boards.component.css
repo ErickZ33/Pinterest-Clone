@@ -70,6 +70,11 @@ div.pins{
 div.pins:hover{
     background-color: #E0E0E0;
 } 
+
+div.pins:hover .p-right{
+    opacity: 1;
+}
+
 a.delete{
     display: inline-block;
     color: white;
@@ -167,4 +172,20 @@ hr{
 	outline: none;
 	/** Unhide lightbox **/
 	display: block;
+}
+
+
+.p-left{
+    display: inline-block;
+    margin: 5px 0px 3px 0px;
+}
+
+.p-right{
+    display: inline-block;
+    opacity: 0;
+    margin: 5px 3px 3px 0px;
+    float: right;
+    border: none;
+    background: none;
+    font-size: 16px;
 }

@@ -39,9 +39,15 @@ module.exports = {
         })
     },
     delete:function(req,res){
-        Board.remove({_id:req.body.content},function(err,item){
+        Board.remove({_id:req.body.board.content},function(err,item){
+            if(err){
+                console.log(err);
+            } else {
+                res.json([]);
+            }
         })
     },
+         
     addToBoard:function(req,res){
         Board.findOne({_id: req.body.boardid}, function (err, board) {
             if (err) {
@@ -70,6 +76,16 @@ module.exports = {
                         })
                     }
                 })
+            }
+        })
+    },
+
+    grabMyBoard: function(req,res){
+        Board.findOne({_id: req.body._id}, function(err,board){
+            if(err){
+                console.log(err);
+            } else {
+                res.json(board);
             }
         })
     }

@@ -50,7 +50,7 @@ export class BoardsComponent implements OnInit {
 
   delete(id){
     this.boardid.content=id
-    this._boardService.deleteBoard(this.boardid)
+    this._boardService.deleteBoard(this.boardid, this.currentUser);
   }
 
   display(board){
@@ -59,7 +59,10 @@ export class BoardsComponent implements OnInit {
   }
 
   allBoards(){
-    this.boardView=false
+    this.boardView=false;
+    this._boardService.showBoards(this.boardOwner)
+    .then(data => this.boards = data)
+    .catch(err => console.log(err));
   }
 
   ngOnInit() {
@@ -73,6 +76,18 @@ export class BoardsComponent implements OnInit {
 
   populatePins(){
       this._pinService.retrievePins().then(pins => this.pins = pins).catch(err => console.log(err));
+  }
+
+  removePin(pin, board){
+    console.log("clicked remove pin");
+    this._pinService.removePin(pin, board).then(pins => {
+      console.log(pins);
+      this._pinService.grabmyBoard(board).then(board => this.viewing = board).catch(err => console.log(err));
+    }).catch(err => console.log(err));
+    // this.populatePins();
+    // this.ngOnInit();
+    // this._router.navigateByUrl('/profile/' + this.currentUser._id + '/boards');
+    // this._pinService.grabmyBoard(board).then(board => this.viewing = board).catch(err => console.log(err));
   }
 
 }

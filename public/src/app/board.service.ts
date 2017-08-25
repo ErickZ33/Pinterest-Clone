@@ -20,8 +20,12 @@ export class BoardService {
     .map(data => data.json())
     .toPromise();
   }
-  deleteBoard(id){
-    return this._http.post('/deleteBoard',id)
+  deleteBoard(boardid, userid){
+    var context = {
+      board: boardid,
+      user: userid._id
+    }
+    return this._http.post('/deleteBoard', context)
     .map(data => data.json())
     .toPromise();
   }

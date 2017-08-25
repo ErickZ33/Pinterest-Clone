@@ -86,8 +86,21 @@ export class PinService {
     return this._http.post('/api/follow', followObj).map(data => data.json()).toPromise();
   }
 
+  removePin(pin, board){
+    var context = {
+      pin: pin,
+      board: board,
+      user: this.loggedUser
+    }
+    return this._http.post('/api/removePin', context).map(data => data.json()).toPromise();
+  }
+
   unfollowUser(followObj){
     return this._http.post('/api/unfollow', followObj).map(data => data.json()).toPromise();
+  }
+
+  grabmyBoard(board){
+    return this._http.post('/api/viewingBoard', board).map(data => data.json()).toPromise();
   }
 
 }
