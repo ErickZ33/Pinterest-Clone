@@ -59,8 +59,12 @@ export class HomeComponent implements OnInit {
   this._boardService.addToBoard(this.addProcess)
   }
   
-  createStatus(){
+  createdStatus(){
     this.created=true;
+    console.log("created status hit")
+  }
+  falseCreated(){
+    this.created=false;
   }
 
   getBoards(){
