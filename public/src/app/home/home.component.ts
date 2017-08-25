@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
   }
 
   getBoards(){
-    this._boardService.showBoards()
+    this._boardService.showBoards(this.currentUser)
       .then(data => this.boards = data)
       .catch(err => console.log(err));
   }

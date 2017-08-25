@@ -1,3 +1,7 @@
+.add-color{
+    color: rgb(60,60,60);
+}
+
 div.container{
     width:970px;
     margin:auto;

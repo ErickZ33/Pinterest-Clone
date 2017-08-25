@@ -11,8 +11,9 @@ import { PinService } from '../pin.service';
 export class ProfileComponent implements OnInit {
 
   currentUserID
-  currentUser
+  currentUser;
   loggedIn = false
+  loggedUser;
   
   constructor(private _pinService: PinService, private _router: Router, private _route: ActivatedRoute) { }
 
@@ -23,9 +24,9 @@ export class ProfileComponent implements OnInit {
 
     this._pinService.grabUserUsingID(this.currentUserID).then(currUser => {
       this.currentUser = currUser;
+      this._pinService.viewedUser = currUser;
       this.loggedIn = true;
     }).catch(err => console.log(err));
-
   }
 
 }

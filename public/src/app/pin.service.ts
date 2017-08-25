@@ -6,6 +6,11 @@ import { Http } from '@angular/http';
 @Injectable()
 export class PinService {
 
+  showHeader = false;
+
+  loggedUser;
+  viewedUser;
+
   constructor(private _http: Http) { }
 
   grabUserUsingID(userID){
@@ -66,8 +71,8 @@ export class PinService {
     return this._http.post('/api/singlepin', context).map(data => data.json()).toPromise();
   };
 
-  grabUserPins() {
-    return this._http.get('/api/grabUserPins').map(data => data.json()).toPromise();    
+  grabUserPins(pinOwner) {
+    return this._http.post('/api/grabUserPins', pinOwner).map(data => data.json()).toPromise();    
   }
 
 }
