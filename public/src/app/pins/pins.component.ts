@@ -65,15 +65,12 @@ export class PinsComponent implements OnInit {
     }).catch(err => console.log(err));
     this._pinService.grabUserPins(this.pinOwner).then(apiPins => {
       this.pins = apiPins.pins;
-      console.log("trying to grab pins");
-      console.log(this.pins);
     }).catch(err => console.log(err));
   }
 
   grabBoards(){
     this._pinService.retrieveBoards().then(boards =>{
       this.boards = boards;
-      console.log(this.boards);
     }).catch(err => console.log(err));
   }
 

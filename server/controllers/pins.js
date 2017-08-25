@@ -94,8 +94,6 @@ module.exports = {
                 console.log(err);
             }
             else{
-                console.log('USER FOUND IN BACK END');
-                console.log(user);
                 Pin.find({}, function(err, pins){
                     if(err){
                         console.log(err);
@@ -107,7 +105,6 @@ module.exports = {
                         for(var k=0;k<user.interests.length;k++){
                            for(var j=0;j<pins.length;j++){
                                if(user.interests[k] == pins[j].category){
-                                   console.log(user.interests[k]);
                                    result.pins.push(pins[j]);
                                }
                            }

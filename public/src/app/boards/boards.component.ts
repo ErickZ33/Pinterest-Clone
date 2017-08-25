@@ -54,7 +54,6 @@ export class BoardsComponent implements OnInit {
   }
 
   display(board){
-    console.log(board)
     this.boardView=true
     this.viewing=board
   }
@@ -69,10 +68,7 @@ export class BoardsComponent implements OnInit {
     .then(data => this.boards = data)
     .catch(err => console.log(err));
   this.populatePins(); 
-  console.log(this._pinService.loggedUser);
-  console.log(this._pinService.viewedUser);
   this.myAccount = (this._pinService.loggedUser._id == this._pinService.viewedUser._id);
-  console.log(this.myAccount);
   }
 
   populatePins(){

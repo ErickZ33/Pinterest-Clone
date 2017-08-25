@@ -14,7 +14,9 @@ export class PinService {
   constructor(private _http: Http) { }
 
   logout(){
-    return this._http.get('/api/logout').map(data => data.json()).toPromise();    
+    this.loggedUser = {}
+    this.viewedUser = {}
+    return this._http.get('/api/logout').map(data => data.json()).toPromise(); 
   }
 
   grabUserUsingID(userID){
@@ -30,6 +32,7 @@ export class PinService {
   }
 
   sendUser(user) {
+    this.loggedUser = user;
     return this._http.post('/api/register', user).map(data => data.json()).toPromise();
   }
 

@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit {
   logout(){
     this._pinService.loggedUser = {}
     this._pinService.viewedUser = {}
+    this._pinService.showHeader = false
     this._pinService.logout()
     this._router.navigateByUrl('/');
   }

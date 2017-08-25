@@ -25,7 +25,8 @@ module.exports = {
                 if (err) {
                     res.json(err);
                 } else {
-                    currentUser = user.email
+                    currentUser = user.email;
+                    console.log(currentUser);
                     res.json(user);
                 }
             });
@@ -44,7 +45,6 @@ module.exports = {
                     if (err) {
                         res.json(err);
                     } else {
-                        console.log(user)
                         res.json(user);
                     }
                 });
@@ -109,19 +109,17 @@ module.exports = {
         })
     },
     grabUserPins: function(req, res) {
-        console.log(req.body);
         User.findOne({email: req.body.email}).populate('pins').exec(function(err, user){
             if(err){
                 console.log(err)
             }
             else{
-                console.log(user.pins);
                 res.json(user);  
             }
         });
     },
     logout: function(req, res) {
-        currentUser = ''
+        currentUser = {}
         res.json([]);
     }
 }    

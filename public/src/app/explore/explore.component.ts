@@ -30,7 +30,6 @@ export class ExploreComponent implements OnInit {
     }).catch(err => console.log(err));
   }
   category(key){
-    console.log(key)
     this.filtering=true
     this.filter=key
   }
