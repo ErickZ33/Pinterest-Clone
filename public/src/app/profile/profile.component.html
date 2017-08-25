@@ -11,6 +11,11 @@
           <p class="number">{{currentUser.following.length}}</p>
           <p>Following</p>
         </div>
+        <div *ngIf="_pinService.loggedUser._id != _pinService.viewedUser._id && !following"><button (click)="follow()">Follow</button></div>
+        <div *ngIf="_pinService.loggedUser._id != _pinService.viewedUser._id && following">
+          <p>Following</p>
+          <button (click)="unfollow()">Unfollow</button>
+        </div>
       </div>
       <div class="profile" id="profileContainer">
         <p id="profilePicText">Upload Profile Pic</p>

@@ -75,4 +75,12 @@ export class PinService {
     return this._http.post('/api/grabUserPins', pinOwner).map(data => data.json()).toPromise();    
   }
 
+  followUser(followObj){
+    return this._http.post('/api/follow', followObj).map(data => data.json()).toPromise();
+  }
+
+  unfollowUser(followObj){
+    return this._http.post('/api/unfollow', followObj).map(data => data.json()).toPromise();
+  }
+
 }

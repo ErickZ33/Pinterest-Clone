@@ -83,6 +83,14 @@ module.exports = function (app) {
         users.grabUserPins(req, res);
     })
 
+    app.post('/api/follow', function (req, res) {
+        users.follow(req, res);
+    })
+
+    app.post('/api/unfollow', function (req, res) {
+        users.unfollow(req, res);
+    })
+
     app.all('*', function (req, res) {
         res.sendFile(path.resolve('./public/dist/index.html'));
     })
