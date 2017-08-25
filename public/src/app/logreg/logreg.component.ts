@@ -72,7 +72,6 @@ export class LogregComponent implements OnInit {
       this.currentUser = apiUser;
       if (apiUser.length >= 1) {
         this._pinService.loggedUser = apiUser[0];
-        console.log(this._pinService.loggedUser);
         this._pinService.showHeader = true;
         this._router.navigateByUrl('/home');
       }

@@ -29,6 +29,31 @@ module.exports = {
 
     },
 
+    addBoardWithPin: function (req, res) {
+        User.findOne({_id: req.body.owner._id}, function(err, user){
+            if(err){
+                console.log(err);
+            }
+            else{
+                console.log(user);
+                var board = new Board({
+                    name: req.body.boardName,
+                    _owner: user._id,
+                    _pins: [req.body.pin],
+                });
+                board.save(function (error, board) {
+                    if (error) {
+                        console.log(error);
+                    }
+                    else {
+                        console.log(board);
+                        res.json(board);
+                    }
+                })
+            }
+        })
+    },
+
     show: function (req, res) {
         Board.find({_owner: req.body._id}, function (err, items) {
             if (err) {

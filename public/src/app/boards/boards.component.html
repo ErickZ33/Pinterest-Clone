@@ -16,16 +16,11 @@
         <div class="graysquare" (click)="display(board)">
           <div class="thumbnail">
             <ng-container *ngFor="let pin of pins">
-
               <ng-container *ngFor="let post of board._pins">
-
                 <div *ngIf="post==pin._id" style="display:inline-block">
                   <img src="{{pin.image}}" height="auto" width="60px" style="display:inline-block;">
                 </div>
-
-
               </ng-container>
-
             </ng-container>
           </div>
         </div>

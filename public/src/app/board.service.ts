@@ -9,8 +9,13 @@ export class BoardService {
 
   constructor(private _http: Http) { }
 
+  addBoardWithPin(newBoard){
+    return this._http.post('/addBoardWithPin',newBoard)
+    .map(data => data.json())
+    .toPromise();
+  }
+
   addBoard(board){
-    // console.log(board,"service")
     return this._http.post('/newBoard',board)
     .map(data => data.json())
     .toPromise();

@@ -42,6 +42,10 @@ module.exports = function (app) {
         boards.createBoard(req, res);
     })
 
+    app.post('/addBoardWithPin', function (req, res) {
+        boards.addBoardWithPin(req, res);
+    })
+
     app.post('/showBoards', function (req, res){
         boards.show(req,res);
     });
