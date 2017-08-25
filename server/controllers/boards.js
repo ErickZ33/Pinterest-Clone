@@ -54,7 +54,20 @@ module.exports = {
                         console.log(error);
                     }
                     else {
-                        res.json({});
+                        User.findOne({_id: board._owner}, function(err, user){
+                            if(err) {
+                                console.log(err);
+                            } else {
+                                user.pins.push(req.body.postid);
+                                user.save(function(err){
+                                    if(err){
+                                        console.log(err);
+                                    } else {
+                                        res.json({});
+                                    }
+                                })
+                            }
+                        })
                     }
                 })
             }

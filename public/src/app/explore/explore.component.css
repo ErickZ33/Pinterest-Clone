@@ -12,6 +12,13 @@ div.pinsContainer{
     display: inline-block;
     float: right;
 }
+div.boardSucess{
+    text-align: center;
+    margin:auto;
+    padding:100px;
+    padding-left: 156px;
+}
+
 div.pinHolder{
     height:600px;
     display: inline-block;

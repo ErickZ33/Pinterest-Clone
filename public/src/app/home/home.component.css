@@ -1,6 +1,12 @@
 .add-color{
     color: rgb(60,60,60);
 }
+div.boardSucess{
+    text-align: center;
+    margin:auto;
+    padding:100px;
+    padding-left: 156px;
+}
 
 div.container{
     width:970px;

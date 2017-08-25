@@ -9,6 +9,8 @@ import { BoardService } from '../board.service';
   styleUrls: ['./explore.component.css']
 })
 
+
+
 export class ExploreComponent implements OnInit {
   filtering=false;
   filter=""
@@ -19,6 +21,7 @@ export class ExploreComponent implements OnInit {
   currentUser;
   addProcess={postid:"",boardid:""}
   logged = false
+  created=false;
   color="#888"
 
   ngOnInit() {
@@ -32,6 +35,14 @@ export class ExploreComponent implements OnInit {
   category(key){
     this.filtering=true
     this.filter=key
+  }
+
+   createdStatus(){
+    this.created=true;
+    console.log("created status hit")
+  }
+  falseCreated(){
+    this.created=false;
   }
 
   pinAdding(pin){
