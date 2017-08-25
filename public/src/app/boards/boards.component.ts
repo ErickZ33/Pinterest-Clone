@@ -54,9 +54,7 @@ export class BoardsComponent implements OnInit {
 
   ngOnInit() {
   this._pinService.grabUser().then(currUser => this.currentUser = currUser).catch(err => console.log(err));
-  this._boardService.showBoards()
-    .then(data => this.boards = data)
-    .catch(err => console.log(err));
+  this._boardService.showBoards().then(data => this.boards = data).catch(err => console.log(err));
   this.populatePins();
   }
 

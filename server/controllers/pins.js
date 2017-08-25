@@ -77,6 +77,38 @@ module.exports = {
                 res.json(pins);
             }
         })
+    },
+
+    retrieveUserPins: function(req, res) {
+        User.findOne({_id: req.body._id}, function(err, user){
+            if(err){
+                console.log(err);
+            }
+            else{
+                console.log('USER FOUND IN BACK END');
+                console.log(user);
+                Pin.find({}, function(err, pins){
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        let result = {
+                            'pins':[]
+                        }
+                        for(var k=0;k<user.interests.length;k++){
+                           for(var j=0;j<pins.length;j++){
+                               if(user.interests[k] == pins[j].category){
+                                   console.log(user.interests[k]);
+                                   result.pins.push(pins[j]);
+                               }
+                           }
+                        }
+                        res.json(result);
+                    }
+                })
+            }
+        })
     }
+
 
 }

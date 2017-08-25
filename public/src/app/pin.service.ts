@@ -55,6 +55,10 @@ export class PinService {
     return this._http.get('/api/pins').map(data => data.json()).toPromise();
   };
 
+  retrieveUserPins(user){
+    return this._http.post('/api/retrieveUserPins', user).map(data => data.json()).toPromise();    
+  }
+
   retrievePin(id){
     var context = {
       id: id

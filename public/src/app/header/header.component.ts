@@ -25,4 +25,8 @@ export class HeaderComponent implements OnInit {
     }).catch(err => console.log(err));
   }
 
+  searchPins(){
+    console.log('hello')
+  }
+
 }

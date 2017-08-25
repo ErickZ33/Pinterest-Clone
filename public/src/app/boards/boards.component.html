@@ -1,4 +1,4 @@
-<div class="boardComp">
+<div *ngIf="currentUser" class="boardComp">
   <div class="displayBoard" *ngIf="!boardView">
     <a href="profile/{{currentUser._id}}/boards#newboard">
       <div class="graysquare">
