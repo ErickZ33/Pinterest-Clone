@@ -40,6 +40,13 @@ export class HomeComponent implements OnInit {
      'Architecture'
   ]
 
+  newBoard = {
+    'boardName': '',
+    'owner': {},
+    'pin': {}
+  }
+  createdBoard;
+
   ngOnInit() {
     this._pinService.grabUser().then(currUser => {
       this.currentUser = currUser;
@@ -61,7 +68,6 @@ export class HomeComponent implements OnInit {
   
   createdStatus(){
     this.created=true;
-    console.log("created status hit")
   }
   falseCreated(){
     this.created=false;
@@ -71,6 +77,12 @@ export class HomeComponent implements OnInit {
     this._boardService.showBoards(this.currentUser)
       .then(data => this.boards = data)
       .catch(err => console.log(err));
+  }
+
+  createBoard(){
+    this.newBoard.owner = this.currentUser;
+    this.newBoard.pin = this.addPinBoard;
+    this._boardService.addBoardWithPin(this.newBoard).then(apiBoard => this.createdBoard = apiBoard).catch(err => console.log(err));
   }
 
 }
