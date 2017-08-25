@@ -31,21 +31,10 @@ module.exports = {
     },
 
     show: function (req, res) {
-        // var user;
-        // User.find({_id: req.body.id}, function(err, creator){
-        //     user=creator;
-        //     if(err){
-        //         console.log(err)
-        //     }
-        //     else{
-        //         res.json(creator);                
-        //     }
-        //
-        // console.log(req.body.name, "user")
-        
-        Board.find({}, function (err, items) {
+        console.log("inside board show: ", req.body);
+        Board.find({_owner: req.body._id}, function (err, items) {
             if (err) {
-                console.log("err")
+                console.log(err)
             } else {
                 // console.log(items, "controller")
                 res.json(items)

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  showHeader = this._pinService.showHeader;
   userID
   imglogo="/assets/images/Pinterest-logo.png"
 
@@ -21,8 +21,20 @@ export class HeaderComponent implements OnInit {
   getUser(){
     this._pinService.grabUser().then(currUser => {
       this.userID = currUser._id;
+      this._pinService.viewedUser = currUser;
       this._router.navigateByUrl('/profile/' + this.userID + '/boards')
     }).catch(err => console.log(err));
+  }
+
+  searchPins(){
+    console.log('hello')
+  }
+
+  logout(){
+    this._pinService.loggedUser = {}
+    this._pinService.viewedUser = {}
+    this._pinService.logout()
+    this._router.navigateByUrl('/');
   }
 
 }

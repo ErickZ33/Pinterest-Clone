@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="createBoard">
+    <div class="createBoard" *ngIf="_pinService.viewedUser._id == _pinService.loggedUser._id">
       <a href="profile/{{currentUser._id}}/pins#newpin">
       <div class="graysquare">
         <img class="plus" src="/assets/images/plus.png" height="40" width="43">

@@ -22,6 +22,10 @@ export class BoardsComponent implements OnInit {
   viewing;
   pins = [];
   currentUser;
+  paramsID;
+  myAccount = true;
+  boardOwner = this._pinService.viewedUser;
+
   
   newBoard(){
     this.board._userid=this.currentUser._id
@@ -38,11 +42,11 @@ export class BoardsComponent implements OnInit {
     this.createNew=true
   }
   
-  showBoards(){
-    this._boardService.showBoards()
-    .then(data => this.boards = data)
-    .catch(err => console.log(err));
-  }
+  // grabBoards(){
+  //   this._boardService.showBoards(this.boardOwner)
+  //   .then(data => this.boards = data)
+  //   .catch(err => console.log(err));
+  // }
 
   delete(id){
     this.boardid.content=id
@@ -61,10 +65,14 @@ export class BoardsComponent implements OnInit {
 
   ngOnInit() {
   this._pinService.grabUser().then(currUser => this.currentUser = currUser).catch(err => console.log(err));
-  this._boardService.showBoards()
+  this._boardService.showBoards(this.boardOwner)
     .then(data => this.boards = data)
     .catch(err => console.log(err));
-  this.populatePins();
+  this.populatePins(); 
+  console.log(this._pinService.loggedUser);
+  console.log(this._pinService.viewedUser);
+  this.myAccount = (this._pinService.loggedUser._id == this._pinService.viewedUser._id);
+  console.log(this.myAccount);
   }
 
   populatePins(){

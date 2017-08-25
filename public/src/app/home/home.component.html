@@ -2,7 +2,7 @@
   <h1>home</h1>
   <br>
 </div>
-<div class="pinsContainer">
+<div *ngIf="pins" class="pinsContainer">
   <div *ngFor="let pin of pins" class="pins">
     <a [routerLink]="['/', 'pin', pin._id]"><img src="{{pin.image}}" style="width:200px;border-radius:5px;"></a>
     <p *ngIf="pin" style="color:#888;margin:2px;display:inline-block">{{pin.title}}</p>
@@ -23,7 +23,7 @@
         <img *ngIf="addPinBoard" src="{{addPinBoard.image}}" style="width:200px;border-radius:5px;">
       </div>
 
-      <div class="addBoardSelect">
+      <div *ngIf="pins.length>=1" class="addBoardSelect">
 
         <ng-container *ngFor="let board of boards">
           
@@ -40,7 +40,7 @@
                   </ng-container> 
 
                 </ng-container>
-                <a  href="javascript:void(0)" (click)="addToBoard(board._id,addPinBoard._id)">
+                <a  class="add-color" href="javascript:void(0)" (click)="addToBoard(board._id,addPinBoard._id)">
                 Add to Board 
                 </a>
          
