@@ -31,8 +31,6 @@ export class ProfileComponent implements OnInit {
       this.currentUser = currUser;
       this._pinService.viewedUser = currUser;
       this.loggedIn = true;
-      console.log(this._pinService.viewedUser)
-      console.log(this._pinService.loggedUser)
       for (var i = 0; i < this._pinService.loggedUser.following.length; i+=1){
         if (this._pinService.loggedUser.following[i] == this._pinService.viewedUser._id){
           this.following = true;

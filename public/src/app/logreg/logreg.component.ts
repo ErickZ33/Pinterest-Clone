@@ -34,58 +34,59 @@ export class LogregComponent implements OnInit {
     password: ''
   }
 
-  constructor(private _pinService:PinService, private _router: Router){}
+  constructor(private _pinService: PinService, private _router: Router) { }
 
 
-  ngOnInit(){
+  ngOnInit() {
 
   }
-  
-  onSubmit(){
+
+  onSubmit() {
     this._pinService.checkEmail(this.user).then(apiUser => {
-      if(apiUser.length >=1){
+      if (apiUser.length >= 1) {
         this.exists = true
         this.gender = false
-        this.register = true   
+        this.register = true
       }
-      else{
+      else {
         this.gender = true
-        this.register = false   
+        this.register = false
       }
     }).catch(err => console.log(err));
   }
 
-  addUser(){
-    this._pinService.sendUser(this.user).then(user => this.validUser = user).catch(err => console.log(err));   
-    this._router.navigateByUrl('/interest'); 
+  addUser() {
+    this._pinService.sendUser(this.user).then(user => this.validUser = user).catch(err => console.log(err));
+    this._pinService.loggedUser = this.user;
+    this._router.navigateByUrl('/interest');
   }
 
-  loginForm(){
+  loginForm() {
     this.gender = false
     this.register = false
     this.logForm = true
   }
 
-  loginUser(){
-      this._pinService.login(this.login).then(apiUser => {
-        this.currentUser = apiUser;        
-        if(apiUser.length >=1){
-          this._pinService.loggedUser = apiUser[0];
-          this._pinService.showHeader = true;
-          this._router.navigateByUrl('/home');
-        }
-        else{
-          this.valid = true;
-        }
-      }).catch(err => console.log(err));
-    }
+  loginUser() {
+    this._pinService.login(this.login).then(apiUser => {
+      this.currentUser = apiUser;
+      if (apiUser.length >= 1) {
+        this._pinService.loggedUser = apiUser[0];
+        this._pinService.showHeader = true;
+        this._router.navigateByUrl('/home');
+      }
+      else {
+        this.valid = true;
+      }
+    }).catch(err => console.log(err));
+  }
 
-  goBack(){
+  goBack() {
     this.gender = false
     this.register = true
   }
 
-  goBackToLoginReg(){
+  goBackToLoginReg() {
     this.gender = false
     this.register = true
     this.logForm = false

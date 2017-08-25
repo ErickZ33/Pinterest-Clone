@@ -62,7 +62,11 @@ export class InterestComponent implements OnInit {
   }
 
   goHome(){
-    this._router.navigateByUrl('/home');     
+    this._pinService.grabUser().then(currUser => {
+      this._pinService.loggedUser = currUser;
+      this._pinService.showHeader = true;
+      this._router.navigateByUrl('/home');           
+    }).catch(err => console.log(err));
   }
 
   ngOnInit() {
