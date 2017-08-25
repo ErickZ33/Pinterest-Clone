@@ -117,7 +117,11 @@ module.exports = {
             else{
                 console.log(user.pins);
                 res.json(user);  
-                }
-            });
-        }
+            }
+        });
+    },
+    logout: function(req, res) {
+        currentUser = ''
+        res.json([]);
+    }
 }    

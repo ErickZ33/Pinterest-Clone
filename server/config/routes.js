@@ -38,20 +38,15 @@ module.exports = function (app) {
         pins.parseImages(req, res);
     })
 
-    //ADD BOARD
     app.post('/newBoard', function (req, res) {
-        // console.log(req.body,"in routes");
         boards.createBoard(req, res);
     })
 
-    //SHOW BOARDS
     app.post('/showBoards', function (req, res){
         boards.show(req,res);
     });
-    //DELETE BOARD
 
      app.post('/deleteBoard', function (req, res) {
-        // console.log(req.body.content,"in routes");
         boards.delete(req, res);
     })
 
@@ -81,6 +76,10 @@ module.exports = function (app) {
 
     app.post('/api/grabUserPins', function (req, res) {
         users.grabUserPins(req, res);
+    })
+
+    app.get('/api/logout', function (req, res){
+        users.logout(req, res);
     })
 
     app.all('*', function (req, res) {

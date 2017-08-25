@@ -30,4 +30,11 @@ export class HeaderComponent implements OnInit {
     console.log('hello')
   }
 
+  logout(){
+    this._pinService.loggedUser = {}
+    this._pinService.viewedUser = {}
+    this._pinService.logout()
+    this._router.navigateByUrl('/');
+  }
+
 }
