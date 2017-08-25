@@ -109,20 +109,15 @@ module.exports = {
         })
     },
     grabUserPins: function(req, res) {
-        User.findOne({email: currentUser}, function(err, user){
+        console.log(req.body);
+        User.findOne({email: req.body.email}).populate('pins').exec(function(err, user){
             if(err){
                 console.log(err)
             }
             else{
-                Pin.find({creator: user._id}, function(err, pins){
-                    if(err){
-                        console.log(err);
-                    }
-                    else{
-                        res.json(pins);
-                    }
-                })
-            }
-        })
-    }
+                console.log(user.pins);
+                res.json(user);  
+                }
+            });
+        }
 }    

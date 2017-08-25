@@ -14,6 +14,7 @@ export class PinsComponent implements OnInit {
   lastStep = false;
   boards = []
   pins = []
+  pinOwner = this._pinService.viewedUser
 
   pin = {
     img: "",
@@ -62,7 +63,11 @@ export class PinsComponent implements OnInit {
       this.pin.creator = currUser;
       this.grabBoards();
     }).catch(err => console.log(err));
-    this._pinService.grabUserPins().then(apiPins => this.pins = apiPins).catch(err => console.log(err));
+    this._pinService.grabUserPins(this.pinOwner).then(apiPins => {
+      this.pins = apiPins.pins;
+      console.log("trying to grab pins");
+      console.log(this.pins);
+    }).catch(err => console.log(err));
   }
 
   grabBoards(){
@@ -89,7 +94,7 @@ export class PinsComponent implements OnInit {
   createPin() {
     this._pinService.sendPin(this.pin).then(response => {
       this.pin = {img: "", url: "", title: "", creator: "", description: "", board: "", category: ""};
-      this._router.navigateByUrl('/profile/boards');
+      this._router.navigateByUrl('/profile/' + this.currentUser._id + '/boards');
     }).catch(err => console.log(err)); 
   }
 

@@ -41,7 +41,16 @@ module.exports = {
                         if (err){
                             console.log(err);
                         } else {
-                            res.json(pin);
+                            User.findOne({_id: req.body.creator._id}, function(err, user){
+                                user.pins.push(pin);
+                                user.save(function(err){
+                                    if(err){
+                                        console.log(err);
+                                    } else {
+                                        res.json(user);
+                                    }
+                                })
+                            })
                         }
                     });
                 }

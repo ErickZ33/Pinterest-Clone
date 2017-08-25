@@ -45,8 +45,7 @@ module.exports = function (app) {
     })
 
     //SHOW BOARDS
-    app.get('/showBoards', function (req, res){
-        // console.log(req.body.name,"routesShow")
+    app.post('/showBoards', function (req, res){
         boards.show(req,res);
     });
     //DELETE BOARD
@@ -76,7 +75,7 @@ module.exports = function (app) {
         pins.one(req, res);
     });
 
-    app.get('/api/grabUserPins', function (req, res) {
+    app.post('/api/grabUserPins', function (req, res) {
         users.grabUserPins(req, res);
     })
 

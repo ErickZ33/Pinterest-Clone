@@ -40,6 +40,10 @@ var UserSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'Board'
     }],
+    pins: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Pin'
+    }],
     password: {
         type: String,
         required: true,

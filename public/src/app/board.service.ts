@@ -15,8 +15,8 @@ export class BoardService {
     .map(data => data.json())
     .toPromise();
   }
-  showBoards(){
-    return this._http.get('/showBoards')
+  showBoards(boardOwner){
+    return this._http.post('/showBoards', boardOwner)
     .map(data => data.json())
     .toPromise();
   }
