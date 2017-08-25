@@ -11,6 +11,7 @@ import { BoardService } from '../board.service';
 export class HomeComponent implements OnInit {
   boards;
   addPinBoard;
+  created=false;
   pins = [];
   constructor(private _pinService:PinService, private _router: Router,private _boardService:BoardService){}
   currentUser;
@@ -33,6 +34,10 @@ export class HomeComponent implements OnInit {
   this.addProcess.postid=pin
   this.addProcess.boardid=board
   this._boardService.addToBoard(this.addProcess)
+  }
+  
+  createStatus(){
+    this.created=true;
   }
 
   getBoards(){

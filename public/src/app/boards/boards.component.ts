@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import { Router, ActivatedRoute, Params} from '@angular/router';
 import { Board } from "../board";
 import { PinService } from '../pin.service';
 import { BoardService } from '../board.service';
+
 
 @Component({
   selector: 'app-boards',
@@ -11,6 +12,7 @@ import { BoardService } from '../board.service';
   styleUrls: ['./boards.component.css']
 })
 export class BoardsComponent implements OnInit {
+  _router: any;
   boards;
   boardid={content:""}
   constructor(private _pinService:PinService,private _boardService:BoardService, private _route: ActivatedRoute){}
@@ -23,7 +25,12 @@ export class BoardsComponent implements OnInit {
   
   newBoard(){
     this.board._userid=this.currentUser._id
+
     this._boardService.addBoard(this.board)
+    // .then(response => {
+    //   this._router.navigateByUrl('/profile/boards');
+    // }).catch(err => console.log(err));
+
     this.createNew=false
   }
 
