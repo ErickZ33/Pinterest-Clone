@@ -13,6 +13,10 @@ export class PinService {
 
   constructor(private _http: Http) { }
 
+  logout(){
+    return this._http.get('/api/logout').map(data => data.json()).toPromise();    
+  }
+
   grabUserUsingID(userID){
     return this._http.post('/api/grabUserUsingID', {'userID':userID}).map(data => data.json()).toPromise();    
   }

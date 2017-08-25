@@ -181,4 +181,11 @@ module.exports = {
         })
     },
 
+            }
+        });
+    },
+    logout: function(req, res) {
+        currentUser = ''
+        res.json([]);
+    }
 }    

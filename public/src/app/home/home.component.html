@@ -32,10 +32,12 @@
                 <h5 style="color:#888">{{board.name}}</h5>
 
                 <ng-container *ngFor="let pin of pins">
+                  
 
-                  <div *ngIf="board._pins[0]==pin._id" style="display:inline-block">
-                    <img src="{{pin.image}}" height="auto" height="25px" style="display:inline-block;">
-                  </div>
+                  <ng-container *ngIf="board._pins[1]==pin._id" style="display:inline-block"> 
+        
+                  <img src="{{pin.image}}" height="auto" height="25px" style="display:inline-block;">
+                  </ng-container> 
 
                 </ng-container>
                 <a  class="add-color" href="javascript:void(0)" (click)="addToBoard(board._id,addPinBoard._id)">

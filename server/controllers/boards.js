@@ -36,13 +36,11 @@ module.exports = {
             if (err) {
                 console.log(err)
             } else {
-                // console.log(items, "controller")
                 res.json(items)
             }
         })
     },
     delete:function(req,res){
-        // console.log(req.body.content,"controller");
         Board.remove({_id:req.body.content},function(err,item){
         })
     },

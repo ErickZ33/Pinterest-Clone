@@ -21,7 +21,6 @@ export class BoardService {
     .toPromise();
   }
   deleteBoard(id){
-    // console.log(id,"service")
     return this._http.post('/deleteBoard',id)
     .map(data => data.json())
     .toPromise();
