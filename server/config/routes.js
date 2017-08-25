@@ -84,6 +84,8 @@ module.exports = function (app) {
 
     app.post('/api/unfollow', function (req, res) {
         users.unfollow(req, res);
+    })
+    
     app.get('/api/logout', function (req, res){
         users.logout(req, res);
     })
