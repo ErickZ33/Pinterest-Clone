@@ -65,36 +65,48 @@
     </div>
     <hr>
     <div class="LightBoxContentContainter">
-      <div class="addPinThumb">
-        <h4 *ngIf="addPinBoard" style="color:#888">{{addPinBoard.title}}</h4>
-        <img *ngIf="addPinBoard" src="{{addPinBoard.image}}" style="width:200px;border-radius:5px;">
-      </div>
 
-      <div class="addBoardSelect">
+      <div *ngIf="!created">
+        <div class="addPinThumb">
+          <h4 *ngIf="addPinBoard" style="color:#888">{{addPinBoard.title}}</h4>
+          <img *ngIf="addPinBoard" src="{{addPinBoard.image}}" style="width:200px;border-radius:5px;">
+        </div>
 
-        <ng-container *ngFor="let board of boards">
-          
+        <div *ngIf="pins.length>=1" class="addBoardSelect">
+
+          <ng-container *ngFor="let board of boards">
+
             <ng-container *ngIf="board._owner==currentUser._id">
               <div class="displayBoard">
                 <h5 style="color:#888">{{board.name}}</h5>
 
                 <ng-container *ngFor="let pin of pins">
 
-                  <div *ngIf="board._pins[0]==pin._id" style="display:inline-block">
+
+                  <ng-container *ngIf="board._pins[1]==pin._id" style="display:inline-block">
+
                     <img src="{{pin.image}}" height="auto" height="25px" style="display:inline-block;">
-                  </div>
+                  </ng-container>
 
                 </ng-container>
-                <a  href="javascript:void(0)" (click)="addToBoard(board._id,addPinBoard._id)">
+                <a  style="color:#888;" class="add-color" href="javascript:void(0)" (click)="addToBoard(board._id,addPinBoard._id); createdStatus();">
                 Add to Board 
                 </a>
-         
-            </div>
-          
 
+              </div>
 
+            </ng-container>
           </ng-container>
-        </ng-container>
+        </div>
+      </div>
+
+      <div *ngIf="created">
+        <div class="boardSucess">
+        <h4>Sucessfully added!</h4>
+        <br>
+        <br>
+        <a style="color:#888;" href="explore#" (click)="falseCreated()"> Back to Pins </a>
+        </div>
       </div>
     </div>
 
