@@ -117,6 +117,70 @@ module.exports = {
             else{
                 console.log(user.pins);
                 res.json(user);  
+                }
+            });
+        },
+
+    follow: function(req,res){
+        User.findOne({_id : req.body.follower._id}, function(err, follower){
+            if(err){
+                console.log(err);
+            } else {
+                User.findOne({_id : req.body.followee._id}, function(err, followee){
+                    if(err){
+                        console.log(err);
+                    } else {
+                        follower.following.push(followee);
+                        followee.followers.push(follower);
+                        console.log("inside follow");
+                        follower.save(function(err){
+                            followee.save(function(err){
+                                if (err){
+                                    console.log(err);
+                                } else {
+                                    res.json({});
+                                }
+                            })
+                        })
+                    }
+                })
+            }
+        })
+    },
+
+    unfollow: function(req,res){
+        User.findOne({_id : req.body.follower._id}, function(err, follower){
+            if(err){
+                console.log(err);
+            } else {
+                User.findOne({_id : req.body.followee._id}, function(err, followee){
+                    if(err){
+                        console.log(err);
+                    } else {
+                        var posX = follower.following.indexOf(followee._id);
+                        follower.following.splice(posX, 1);
+                        var posY = followee.followers.indexOf(follower._id);
+                        console.log("inside unfollow", posY);
+                        followee.followers.splice(posY, 1);
+                        follower.save(function(err){
+                            if(err){
+                                console.log(err);
+                            } else {
+                                followee.save(function(err){
+                                    if (err){
+                                        console.log(err);
+                                    } else {
+                                        res.json({});
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    },
+
             }
         });
     },

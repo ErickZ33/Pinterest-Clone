@@ -29,3 +29,7 @@
    color: rgb(208,0,0);
    font-weight: bold; 
 }
+
+a img {
+    width:600px;
+}

@@ -51,16 +51,26 @@ module.exports = {
                 console.log(err)
             }
             else {
-                console.log(board,"found Board");
-                board._pins.push(req.body.postid)
-
+                board._pins.push(req.body.postid);
                 board.save(function (error) {
                     if (error) {
                         console.log(error);
                     }
                     else {
-                        console.log('NOTE SUCCESFULLY SAVED!!!!');
-                        res.json({});
+                        User.findOne({_id: board._owner}, function(err, user){
+                            if(err) {
+                                console.log(err);
+                            } else {
+                                user.pins.push(req.body.postid);
+                                user.save(function(err){
+                                    if(err){
+                                        console.log(err);
+                                    } else {
+                                        res.json({});
+                                    }
+                                })
+                            }
+                        })
                     }
                 })
             }
